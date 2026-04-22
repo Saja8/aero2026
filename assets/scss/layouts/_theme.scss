@@ -1,0 +1,120 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Theme Toggle & Dark Mode
+--------------------------------------------------------------*/
+.theme-toggle {
+  position: fixed;
+  right: 15px;
+  bottom: 70px;
+  z-index: 99998;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--theme-toggle-border);
+  border-radius: 14px;
+  background: var(--theme-toggle-background);
+  color: var(--theme-toggle-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--theme-toggle-shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  i {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 42px var(--panel-shadow-color);
+  }
+
+  &:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 72%);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    right: 12px;
+    bottom: 68px;
+  }
+}
+
+html[data-theme="dark"] {
+  body {
+    background-image: radial-gradient(circle at top center, color-mix(in srgb, var(--accent-color), transparent 88%), transparent 38%);
+    background-attachment: fixed;
+  }
+
+  .light-background {
+    --background-color: var(--surface-muted-color);
+    --surface-color: var(--surface-soft-color);
+  }
+
+  .hero {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 88%), color-mix(in srgb, var(--accent-secondary-color), transparent 92%) 45%, color-mix(in srgb, var(--background-color), transparent 8%));
+  }
+
+  .about {
+    .stat-item,
+    .feature-card,
+    .image-wrapper .floating-card {
+      box-shadow: 0 20px 50px var(--panel-shadow-color);
+      border-color: color-mix(in srgb, var(--default-color), transparent 84%);
+    }
+  }
+
+  .schedule {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 94%);
+
+    .schedule-header .nav-tabs .nav-item .nav-link,
+    .schedule-content .session-timeline .session-block .session-card {
+      box-shadow: 0 20px 50px var(--panel-shadow-color);
+      border-color: color-mix(in srgb, var(--default-color), transparent 84%);
+    }
+
+    .schedule-content .session-timeline .session-block .session-card.break-card {
+      border-color: color-mix(in srgb, var(--accent-color), transparent 72%);
+    }
+  }
+
+  .speakers .speaker-card,
+  .partners .partner-card,
+  .partners .sponsor-block,
+  .partners .sponsor-card,
+  .congress-cta .cta-section,
+  .call-to-action .cta-card,
+  .call-to-action .floating-card,
+  .testimonials .testimonial-item,
+  .testimonials .swiper-button-prev,
+  .testimonials .swiper-button-next,
+  .hero .countdown > div,
+  .hero .floating-badges .badge-item {
+    box-shadow: 0 20px 50px var(--panel-shadow-color);
+  }
+
+  .partners .partner-logo-wrap {
+    background: color-mix(in srgb, var(--surface-color), #ffffff 6%);
+  }
+
+  .navmenu {
+    > ul,
+    .dropdown ul {
+      box-shadow: 0 16px 35px var(--panel-shadow-color);
+    }
+  }
+
+  .call-to-action .urgency-bar {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), #041120 20%), color-mix(in srgb, var(--accent-secondary-color), #06203b 20%));
+    box-shadow: 0 16px 32px rgba(3, 15, 28, 0.45);
+  }
+
+  .call-to-action .countdown > div {
+    background: rgba(8, 20, 34, 0.55);
+    border: 1px solid color-mix(in srgb, var(--accent-secondary-color), transparent 82%);
+  }
+}

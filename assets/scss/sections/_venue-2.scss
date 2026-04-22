@@ -1,0 +1,329 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Venue 2 Section
+--------------------------------------------------------------*/
+.venue-2 {
+  .venue-card {
+    background: var(--surface-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .venue-image {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .venue-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .venue-content {
+      padding: 30px;
+
+      h3 {
+        margin-bottom: 15px;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .venue-address {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+
+        i {
+          color: var(--accent-color);
+          font-size: 18px;
+        }
+      }
+
+      .venue-description {
+        margin-bottom: 25px;
+        line-height: 1.7;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+      }
+
+      .venue-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 15px;
+          background: color-mix(in srgb, var(--accent-color), transparent 90%);
+          border-radius: 12px;
+          font-size: 14px;
+          font-weight: 500;
+
+          i {
+            color: var(--accent-color);
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+
+  .directions-section {
+    .map-container {
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+      iframe {
+        width: 100%;
+        height: 300px;
+        border: none;
+      }
+    }
+
+    .travel-options {
+      margin-bottom: 30px;
+
+      h4 {
+        margin-bottom: 25px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .travel-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background: var(--surface-color);
+        border-radius: 16px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateX(5px);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .travel-icon {
+          width: 50px;
+          height: 50px;
+          background: color-mix(in srgb, var(--accent-color), transparent 85%);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          i {
+            color: var(--accent-color);
+            font-size: 20px;
+          }
+        }
+
+        .travel-info {
+          flex: 1;
+
+          h5 {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          p {
+            margin-bottom: 5px;
+            color: color-mix(in srgb, var(--default-color), transparent 30%);
+            font-size: 14px;
+          }
+
+          .travel-time {
+            color: var(--accent-color);
+            font-size: 13px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .venue-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .btn {
+        flex: 1;
+        min-width: 160px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+
+        &.btn-primary {
+          background: var(--accent-color);
+          color: var(--contrast-color);
+          border: 2px solid var(--accent-color);
+
+          &:hover {
+            background: color-mix(in srgb, var(--accent-color), black 10%);
+            border-color: color-mix(in srgb, var(--accent-color), black 10%);
+            transform: translateY(-2px);
+          }
+        }
+
+        &.btn-outline {
+          background: transparent;
+          color: var(--accent-color);
+          border: 2px solid var(--accent-color);
+
+          &:hover {
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            transform: translateY(-2px);
+          }
+        }
+
+        @media (max-width: 576px) {
+          flex: none;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .accommodation-section {
+    margin-top: 60px;
+    padding: 40px 30px;
+    background: color-mix(in srgb, var(--accent-color), transparent 95%);
+    border-radius: 24px;
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+
+      h4 {
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      p {
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        font-size: 16px;
+      }
+    }
+
+    .hotel-card {
+      background: var(--surface-color);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .hotel-rating {
+        margin-bottom: 15px;
+
+        i {
+          color: #ffd700;
+          font-size: 16px;
+          margin-right: 2px;
+        }
+      }
+
+      h5 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .hotel-distance {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+        font-size: 14px;
+
+        i {
+          color: var(--accent-color);
+        }
+      }
+
+      .hotel-price {
+        .price {
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--accent-color);
+        }
+
+        .period {
+          color: color-mix(in srgb, var(--default-color), transparent 50%);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .directions-section {
+      margin-top: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .venue-card .venue-content {
+      padding: 25px 20px;
+    }
+
+    .accommodation-section {
+      margin-top: 40px;
+      padding: 30px 20px;
+    }
+  }
+}

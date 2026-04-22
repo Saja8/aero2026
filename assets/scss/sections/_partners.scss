@@ -1,0 +1,126 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Partners Section
+--------------------------------------------------------------*/
+.partners {
+  .partner-card {
+    height: 100%;
+    background: var(--surface-elevated-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 50px var(--panel-shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .partner-card.lead-organizer {
+    border-color: color-mix(in srgb, var(--accent-color), transparent 62%);
+    box-shadow: 0 24px 55px var(--panel-shadow-strong-color);
+  }
+
+  .partner-logo-wrap {
+    min-height: 132px;
+    border-radius: 20px;
+    background: var(--surface-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .partner-logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .partner-logo-enmice {
+    width: min(100%, 420px);
+  }
+
+  .partner-logo-kailinks {
+    width: min(100%, 320px);
+  }
+
+  .partner-copy h4 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+  }
+
+  .partner-copy p {
+    margin: 0;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+  }
+
+  .partner-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent-color), transparent 85%);
+    color: var(--accent-color);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .partner-badge-secondary {
+    background: var(--secondary-badge-background);
+    color: var(--secondary-badge-color);
+  }
+
+  .sponsor-block {
+    border-radius: 24px;
+    background: var(--surface-muted-color);
+    padding: 34px;
+  }
+
+  .sponsor-header {
+    margin-bottom: 22px;
+  }
+
+  .sponsor-header h3 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  .sponsor-header p {
+    margin: 0;
+  }
+
+  .sponsor-card {
+    min-height: 120px;
+    border: 2px dashed color-mix(in srgb, var(--accent-color), transparent 72%);
+    border-radius: 18px;
+    background: var(--surface-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .sponsor-card span {
+    font-family: var(--heading-font);
+    font-size: 21px;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--heading-color), transparent 20%);
+  }
+
+  @media (max-width: 767px) {
+    .partner-card,
+    .sponsor-block {
+      padding: 24px;
+    }
+
+    .partner-copy h4,
+    .sponsor-header h3 {
+      font-size: 24px;
+    }
+  }
+}

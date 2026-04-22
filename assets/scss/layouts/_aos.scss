@@ -1,0 +1,22 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# AOS Reliability Guardrails
+--------------------------------------------------------------*/
+html.no-js [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition-delay: 0s !important;
+}
+
+@media screen and (max-width: 991px), (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  [data-aos-delay] {
+    transition-delay: 0s !important;
+  }
+}

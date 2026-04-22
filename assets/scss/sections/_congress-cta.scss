@@ -1,0 +1,80 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Congress CTA Section
+--------------------------------------------------------------*/
+.congress-cta {
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--surface-color), color-mix(in srgb, var(--accent-color), transparent 95%));
+    padding: 4rem 3rem;
+    border-radius: 24px;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+      padding: 0.875rem 2rem;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+
+      &.btn-primary {
+        background: var(--accent-color);
+        color: var(--contrast-color);
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), transparent 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 60%);
+        }
+      }
+
+      &.btn-outline {
+        background: transparent;
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+
+        &:hover {
+          background: var(--accent-color);
+          color: var(--contrast-color);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+    .cta-section {
+      padding: 3rem 2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+}

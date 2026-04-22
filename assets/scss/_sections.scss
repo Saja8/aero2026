@@ -1,0 +1,89 @@
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      width: 50px;
+      height: 2px;
+      background: var(--accent-color);
+      display: inline-block;
+    }
+
+    &:before {
+      margin: 0 15px 10px 0;
+    }
+
+    &:after {
+      margin: 0 0 10px 15px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  @media(max-width: 768px) {
+    h2 {
+      font-size: 20px;
+
+      &:before,
+      &:after {
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: var(--accent-color);
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@import './sections/_hero.scss';
+@import './sections/_about.scss';
+@import './sections/_schedule.scss';
+@import './sections/_congress-cta.scss';
+@import './sections/_speakers.scss';
+@import './sections/_call-to-action.scss';
+@import './sections/_tickets.scss';
+@import './sections/_testimonials.scss';
+@import './sections/_partners.scss';
+@import './sections/_gallery.scss';
+@import './sections/_speaker-details-2.scss';
+@import './sections/_buy-tickets.scss';
+@import './sections/_venue-2.scss';
+@import './sections/_contact.scss';
+@import './sections/_terms-of-service.scss';
+@import './sections/_privacy.scss';
+@import './sections/_error-404.scss';
+@import './sections/_starter-section.scss';
