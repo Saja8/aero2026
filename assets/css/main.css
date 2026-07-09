@@ -2645,7 +2645,7 @@ section,
 }
 .partners .sponsor-card {
   min-height: 120px;
-  border: 2px dashed color-mix(in srgb, var(--accent-color), transparent 72%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
   border-radius: 18px;
   background: var(--surface-color);
   display: flex;
@@ -2659,6 +2659,22 @@ section,
   font-size: 21px;
   font-weight: 600;
   color: color-mix(in srgb, var(--heading-color), transparent 20%);
+}
+.partners .sponsor-card-open {
+  border: 2px dashed color-mix(in srgb, var(--accent-color), transparent 72%);
+}
+.partners .sponsor-card-open span {
+  font-size: 16px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+}
+.partners .sponsor-logo {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+.partners .sponsor-logo-badge {
+  max-height: 64px;
 }
 @media (max-width: 767px) {
   .partners .partner-card,
@@ -4424,3 +4440,5 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*# sourceMappingURL=main.css.map */
