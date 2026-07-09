@@ -1822,7 +1822,7 @@ section,
 }
 .speakers .speaker-image {
   position: relative;
-  height: 280px;
+  height: 170px;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
 }
@@ -1959,7 +1959,7 @@ section,
     margin-bottom: 24px;
   }
   .speakers .speaker-image {
-    height: 240px;
+    height: 150px;
   }
   .speakers .speaker-content {
     padding: 24px 20px;
