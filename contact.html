@@ -41,20 +41,17 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Aerospace 2026</h1>
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Foro ENMICE 2026 - Inicio">
+        <img src="assets/img/brands/enmice-2026-blanco.png" alt="Foro ENMICE 2026">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="index.html#about">Congreso</a></li>
+          <li><a href="index.html#about">Ejes</a></li>
           <li><a href="index.html#schedule">Programa</a></li>
-          <li><a href="index.html#speakers">Participantes</a></li>
+          <li><a href="index.html#speakers">Para quién</a></li>
           <li><a href="index.html#call-to-action">Convocatoria</a></li>
-          <li><a href="index.html#tickets">Participacion</a></li>
           <li><a href="venue.html">Sede</a></li>
           <li><a href="index.html#partners">Coorganizadores</a></li>
           <li><a href="contact.html" class="active">Contacto</a></li>
@@ -77,7 +74,7 @@
             <div class="col-lg-8">
               <h1 class="heading-title">Contacto</h1>
               <p class="mb-0">
-                Este formulario queda para dudas generales, patrocinios y coordinacion institucional. El registro general y la recepcion de ponencias o posters se canalizaran mediante una liga externa.
+                Escríbenos para consultar el registro, presentar un proyecto o coordinar una colaboración institucional.
               </p>
             </div>
           </div>
@@ -101,7 +98,7 @@
           <div class="contact-info-panel">
             <div class="contact-info-header">
               <h3>Informacion de contacto</h3>
-              <p>Canal base para concentrar dudas generales, patrocinios, programa y coordinacion institucional. Registro y postulaciones iran por formulario externo.</p>
+              <p>Escríbenos para resolver dudas sobre registro, proyectos, patrocinios, programa o colaboración institucional.</p>
             </div>
 
             <div class="contact-info-cards">
@@ -125,7 +122,7 @@
                 </div>
               </div>
 
-              <div class="info-card">
+              <div class="info-card d-none" aria-hidden="true">
                 <div class="icon-container">
                   <i class="bi bi-telephone-fill"></i>
                 </div>
@@ -146,7 +143,7 @@
               </div>
             </div>
 
-            <div class="social-links-panel">
+            <div class="social-links-panel d-none" aria-hidden="true">
               <h5>Canales</h5>
               <div class="social-icons">
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -159,15 +156,11 @@
           </div>
 
           <div class="contact-form-panel">
-            <div class="map-container">
-              <iframe src="https://www.google.com/maps?q=Secretaria+de+Economia+Ciudad+de+Mexico&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
             <div class="form-container">
               <h3>Enviar mensaje</h3>
-              <p>Usa este espacio para solicitar informacion sobre asistencia, ponencias, carteles, prototipos, patrocinio o colaboraciones institucionales.</p>
+              <p>Completa los datos y prepararemos un correo dirigido a ENMICE desde tu aplicación de correo.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <form id="contact-email-form">
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="nameInput" name="name" placeholder="Nombre completo" required="">
                   <label for="nameInput">Nombre completo</label>
@@ -188,14 +181,8 @@
                   <label for="messageInput">Tu mensaje</label>
                 </div>
 
-                <div class="my-3">
-                  <div class="loading">Enviando</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Tu mensaje fue enviado. Gracias.</div>
-                </div>
-
                 <div class="d-grid">
-                  <button type="submit" class="btn-submit">Enviar mensaje <i class="bi bi-send-fill ms-2"></i></button>
+                  <button type="submit" class="btn-submit">Preparar correo <i class="bi bi-send-fill ms-2"></i></button>
                 </div>
               </form>
             </div>
@@ -211,8 +198,8 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Aerospace 2026</span>
+          <a href="index.html" class="logo d-flex align-items-center" aria-label="Foro ENMICE 2026 - Inicio">
+            <img src="assets/img/brands/enmice-2026.png" alt="Foro ENMICE 2026" class="footer-brand-logo">
           </a>
           <div class="footer-contact pt-3">
             <p>Secretaria de Economia</p>
@@ -220,7 +207,7 @@
             <p class="mt-3"><strong>Coorganizan:</strong> <span>ENMICE y KaiLinks</span></p>
             <p><strong>Email:</strong> <span>contacto@enmice.mx</span></p>
           </div>
-          <div class="social-links d-flex mt-4">
+          <div class="social-links d-none mt-4" aria-hidden="true">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
             <a href=""><i class="bi bi-instagram"></i></a>
@@ -228,8 +215,8 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Navegacion</h4>
+        <div class="col-lg-4 col-md-3 footer-links">
+          <h4>Navegación</h4>
           <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="index.html#about">Congreso</a></li>
@@ -239,22 +226,22 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
-          <h4>Participacion</h4>
+        <div class="col-lg-4 col-md-3 footer-links">
+          <h4>Participación</h4>
           <ul>
-            <li><a href="https://www.enmice.mx/foroenmice2026" data-external-link="registration">Registro externo</a></li>
-            <li><a href="https://www.enmice.mx/foroenmice2026" data-external-link="submission">Enviar ponencia</a></li>
-            <li><a href="https://www.enmice.mx/foroenmice2026" data-external-link="submission">Enviar poster o demo</a></li>
+            <li><a href="mailto:contacto@enmice.mx" data-external-link="registration">Consultar registro</a></li>
+            <li><a href="mailto:contacto@enmice.mx" data-external-link="submission">Presentar proyecto</a></li>
+            <li><a href="contact.html">Resolver dudas</a></li>
             <li><a href="contact.html">Patrocinios y aliados</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-3 footer-links">
+        <div class="col-lg-3 col-md-3 footer-links d-none">
           <h4>Contenido</h4>
           <ul>
             <li><a href="index.html#schedule">Programa preliminar</a></li>
             <li><a href="index.html#call-to-action">Convocatoria</a></li>
-            <li><a href="index.html#tickets">Modalidades</a></li>
+            <li><a href="https://www.enmice.mx/foroenmice2026">Registro</a></li>
             <li><a href="index.html#gallery">Coorganizadores</a></li>
             <li><a href="contact.html">Contacto</a></li>
           </ul>

@@ -12,10 +12,9 @@
   const themeStorageKey = 'congreso-aeroespacial-theme';
   const rootElement = document.documentElement;
   const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  // Replace these placeholders once the final Google Forms/Sheets URLs are available.
   const externalSiteLinks = {
-    registration: 'https://docs.google.com/forms/',
-    submission: 'https://docs.google.com/forms/'
+    registration: 'mailto:contacto@enmice.mx?subject=Registro%20Foro%20ENMICE%202026',
+    submission: 'mailto:contacto@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
   };
 
   function readStoredTheme() {
@@ -97,12 +96,136 @@
       if (!linkUrl) return;
 
       linkElement.setAttribute('href', linkUrl);
-      linkElement.setAttribute('target', '_blank');
-      linkElement.setAttribute('rel', 'noopener noreferrer');
+      if (linkUrl.startsWith('http')) {
+        linkElement.setAttribute('target', '_blank');
+        linkElement.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        linkElement.removeAttribute('target');
+        linkElement.removeAttribute('rel');
+      }
     });
   }
 
   initExternalLinks();
+
+  function initContactEmailForm() {
+    const contactForm = document.querySelector('#contact-email-form');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const subject = String(formData.get('subject') || 'Consulta Foro ENMICE 2026').trim();
+      const message = String(formData.get('message') || '').trim();
+      const body = [
+        message,
+        '',
+        `Nombre: ${name}`,
+        `Correo de contacto: ${email}`
+      ].join('\n');
+
+      window.location.href = `mailto:contacto@enmice.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
+  initContactEmailForm();
+
+  /**
+   * Add a lightweight decorative space field to each visible section.
+   */
+  function initSpaceField() {
+    const iconNames = [
+      'bi-rocket-takeoff',
+      'bi-broadcast-pin',
+      'bi-moon-stars',
+      'bi-globe2',
+      'bi-stars',
+      'bi-rocket',
+      'bi-broadcast',
+      'bi-moon-fill',
+      'bi-globe-americas',
+      'bi-person-arms-up'
+    ];
+    const main = document.querySelector('main');
+    const hero = document.querySelector('#hero');
+    if (!main) return;
+
+    main.classList.add('space-main');
+    const field = document.createElement('div');
+    field.className = 'page-space-field';
+    field.setAttribute('aria-hidden', 'true');
+    field.style.top = hero ? `${hero.offsetHeight}px` : '0';
+    field.dataset.depth = '2';
+
+    const objectCount = window.matchMedia('(max-width: 576px)').matches ? 14 : 28;
+    const horizontalLanes = [3, 96, 8, 91, 14, 86, 20, 80];
+    for (let objectIndex = 0; objectIndex < objectCount; objectIndex += 1) {
+      const object = document.createElement('span');
+      const colorIndex = (objectIndex % 6) + 1;
+      const iconIndex = (objectIndex * 3 + 2) % iconNames.length;
+      const isAstronaut = iconNames[iconIndex] === 'bi-person-arms-up';
+      const motionClass = objectIndex % 5 === 0 ? 'space-floater' : 'space-faller';
+      object.className = `space-object ${motionClass} space-color-${colorIndex}${isAstronaut ? ' space-astronaut' : ''}`;
+      object.style.left = `${horizontalLanes[objectIndex % horizontalLanes.length]}%`;
+      object.style.top = `${1 + (objectIndex / objectCount) * 94}%`;
+      object.style.setProperty('--space-size', `${0.78 + (objectIndex % 5) * 0.16}rem`);
+      object.style.setProperty('--space-depth', String(3 + (objectIndex % 8)));
+      object.style.setProperty('--space-delay', `${-(objectIndex * 2.3)}s`);
+      object.style.setProperty('--space-duration', `${22 + (objectIndex % 8) * 2}s`);
+      object.style.setProperty('--space-sway', `${objectIndex % 2 ? 28 : -28}px`);
+
+      const icon = document.createElement('i');
+      icon.className = `bi ${iconNames[iconIndex]}`;
+      object.appendChild(icon);
+      field.appendChild(object);
+    }
+    main.prepend(field);
+
+    const heroLayer = document.querySelector('.hero .space-ornaments');
+    if (heroLayer) {
+      heroLayer.classList.add('interactive-space-layer');
+      heroLayer.dataset.depth = '3';
+    }
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(pointer: fine)');
+    if (reducedMotion.matches || !finePointer.matches) return;
+
+    const layers = Array.from(document.querySelectorAll('.page-space-field, .interactive-space-layer'));
+    const objects = Array.from(document.querySelectorAll('.page-space-field .space-object'));
+    let pointerX = 0;
+    let pointerY = 0;
+    let framePending = false;
+
+    function updateParallax() {
+      layers.forEach((layer) => {
+        const depth = Number(layer.dataset.depth || 2);
+        layer.style.setProperty('--field-x', `${pointerX * depth}px`);
+        layer.style.setProperty('--field-y', `${pointerY * depth}px`);
+      });
+      objects.forEach((object) => {
+        const depth = Number(object.style.getPropertyValue('--space-depth') || 5);
+        object.style.setProperty('--mouse-x', `${pointerX * depth}px`);
+        object.style.setProperty('--mouse-y', `${pointerY * depth}px`);
+      });
+      framePending = false;
+    }
+
+    window.addEventListener('pointermove', (event) => {
+      pointerX = (event.clientX / window.innerWidth - 0.5) * 0.9;
+      pointerY = (event.clientY / window.innerHeight - 0.5) * 0.7;
+      if (!framePending) {
+        framePending = true;
+        window.requestAnimationFrame(updateParallax);
+      }
+    }, { passive: true });
+  }
+
+  initSpaceField();
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
