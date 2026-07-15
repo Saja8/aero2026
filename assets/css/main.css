@@ -6812,4 +6812,249 @@ html[data-theme=dark] .venue-quick-item {
   }
 }
 
+/*--------------------------------------------------------------
+# Banner-inspired continuous background
+--------------------------------------------------------------*/
+html:not([data-theme=dark]) body.index-page {
+  background: #eef5f4;
+}
+
+html:not([data-theme=dark]) main.space-main {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 6% 9%, rgba(177, 24, 76, 0.09), transparent 12%),
+    radial-gradient(circle at 93% 18%, rgba(47, 142, 219, 0.13), transparent 14%),
+    radial-gradient(circle at 8% 37%, rgba(31, 184, 199, 0.1), transparent 13%),
+    radial-gradient(circle at 91% 55%, rgba(133, 189, 0, 0.1), transparent 14%),
+    radial-gradient(circle at 7% 77%, rgba(210, 155, 93, 0.09), transparent 13%),
+    radial-gradient(circle at 92% 91%, rgba(177, 24, 76, 0.08), transparent 12%),
+    linear-gradient(180deg, #edf4f3 0%, #f5f8f7 20%, #edf6f8 46%, #f7f4ef 72%, #edf5f5 100%);
+}
+
+html:not([data-theme=dark]) main.space-main::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.62;
+  background:
+    radial-gradient(circle at 9% 15%, transparent 0 54px, rgba(47, 75, 120, 0.08) 55px 56px, transparent 57px),
+    radial-gradient(circle at 91% 32%, transparent 0 68px, rgba(31, 184, 199, 0.08) 69px 70px, transparent 71px),
+    radial-gradient(circle at 8% 63%, transparent 0 44px, rgba(177, 24, 76, 0.07) 45px 46px, transparent 47px),
+    linear-gradient(115deg, transparent 0 49.75%, rgba(47, 75, 120, 0.035) 50%, transparent 50.25%) 0 0 / 260px 330px;
+}
+
+html:not([data-theme=dark]) main.space-main > section {
+  background-color: transparent;
+}
+
+html:not([data-theme=dark]) main.space-main > #hero {
+  background: linear-gradient(135deg, rgba(234, 243, 243, 0.74), rgba(239, 248, 250, 0.6));
+}
+
+html:not([data-theme=dark]) main.space-main > #schedule,
+html:not([data-theme=dark]) main.space-main > #gallery,
+html:not([data-theme=dark]) main.space-main > #contact {
+  background: rgba(220, 237, 244, 0.46);
+  backdrop-filter: blur(2px);
+}
+
+html[data-theme=dark] main.space-main {
+  background:
+    radial-gradient(circle at 7% 13%, rgba(255, 143, 200, 0.09), transparent 13%),
+    radial-gradient(circle at 92% 31%, rgba(105, 220, 255, 0.1), transparent 14%),
+    radial-gradient(circle at 8% 64%, rgba(185, 236, 78, 0.07), transparent 13%),
+    linear-gradient(180deg, #071422 0%, #091a2b 48%, #071522 100%);
+}
+
+.page-space-field {
+  z-index: 2;
+}
+
+.space-main > section:not(#hero) {
+  z-index: 3;
+}
+
+.page-space-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  background-image:
+    radial-gradient(circle, rgba(47, 75, 120, 0.42) 0 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(31, 184, 199, 0.36) 0 1px, transparent 1.6px);
+  background-position: 5% 8%, 94% 14%;
+  background-size: 210px 290px, 260px 340px;
+}
+
+.page-space-field .space-object {
+  width: calc(var(--space-size) * 1.85);
+  opacity: 0.3;
+  filter: saturate(1.08) drop-shadow(0 3px 7px color-mix(in srgb, currentColor, transparent 76%));
+}
+
+html:not([data-theme=dark]) .page-space-field .space-object {
+  opacity: 0.34;
+}
+
+.page-space-field .space-object::before {
+  display: none;
+  inset: -5%;
+  border-width: 1.5px;
+  opacity: 0.58;
+}
+
+.page-space-field .space-object.space-orbit::before {
+  display: block;
+}
+
+.page-space-field .space-glyph {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: inherit;
+  font-size: var(--space-size);
+  line-height: 1;
+  will-change: translate, rotate;
+}
+
+.page-space-field .space-glyph > i {
+  position: relative;
+  font-size: 1em;
+  line-height: 1;
+  animation: none;
+}
+
+.page-space-field .space-vector-object .space-glyph {
+  font-size: calc(var(--space-size) * 1.2);
+}
+
+.page-space-field .space-glyph svg {
+  width: 1em;
+  height: 1em;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.page-space-field .space-vector-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.page-space-field .space-vector-fill-soft {
+  fill: currentColor;
+  fill-opacity: 0.28;
+}
+
+.page-space-field .space-faller .space-glyph {
+  animation: banner-space-travel var(--space-duration) linear var(--space-delay) infinite;
+}
+
+.page-space-field .space-floater .space-glyph {
+  animation: banner-space-float var(--space-duration) ease-in-out var(--space-delay) infinite alternate;
+}
+
+.page-space-field .space-object:nth-child(3n)::after {
+  top: -0.55em;
+  right: -0.42em;
+  font-size: calc(var(--space-size) * 0.5);
+  opacity: 0.9;
+}
+
+.page-space-field .space-astronaut::before {
+  display: block;
+  inset: -10%;
+  border-width: 2px;
+  border-radius: 42% 42% 48% 48%;
+  opacity: 0.55;
+  transform: none;
+}
+
+html[data-theme=dark] .page-space-field .space-object {
+  opacity: 0.38;
+  filter: saturate(1.35) drop-shadow(0 0 11px color-mix(in srgb, currentColor, transparent 62%));
+}
+
+html:not([data-theme=dark]) .hero .ornament {
+  opacity: 0.27;
+  filter: saturate(1.18) drop-shadow(0 4px 8px color-mix(in srgb, currentColor, transparent 76%));
+}
+
+html[data-theme=dark] .hero .ornament {
+  opacity: 0.38;
+}
+
+@keyframes banner-space-travel {
+  0% {
+    translate: 0 -90px;
+    rotate: -12deg;
+  }
+  32% {
+    translate: calc(var(--space-sway) * 0.55) calc(var(--space-travel) * 0.33);
+    rotate: 7deg;
+  }
+  68% {
+    translate: var(--space-sway) calc(var(--space-travel) * 0.72);
+    rotate: -5deg;
+  }
+  100% {
+    translate: 0 var(--space-travel);
+    rotate: 12deg;
+  }
+}
+
+@keyframes banner-space-float {
+  0% {
+    translate: calc(var(--space-sway) * -0.35) -34px;
+    rotate: -14deg;
+  }
+  45% {
+    translate: calc(var(--space-sway) * 0.65) calc(var(--space-travel) * 0.38);
+    rotate: 9deg;
+  }
+  100% {
+    translate: calc(var(--space-sway) * -0.2) calc(var(--space-travel) * 0.68);
+    rotate: -7deg;
+  }
+}
+
+@media (max-width: 576px) {
+  html:not([data-theme=dark]) main.space-main {
+    background:
+      radial-gradient(circle at 5% 10%, rgba(177, 24, 76, 0.1), transparent 11%),
+      radial-gradient(circle at 94% 28%, rgba(31, 184, 199, 0.12), transparent 12%),
+      radial-gradient(circle at 6% 62%, rgba(133, 189, 0, 0.09), transparent 11%),
+      linear-gradient(180deg, #edf4f3 0%, #f4f8f7 24%, #edf6f8 55%, #f7f3ed 78%, #edf5f5 100%);
+  }
+
+  html:not([data-theme=dark]) .page-space-field .space-object {
+    opacity: 0.28;
+  }
+
+  html[data-theme=dark] .page-space-field .space-object {
+    opacity: 0.32;
+  }
+
+  html:not([data-theme=dark]) .hero .ornament {
+    opacity: 0.23;
+  }
+
+  html[data-theme=dark] .hero .ornament {
+    opacity: 0.31;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-space-field .space-glyph {
+    animation: none !important;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

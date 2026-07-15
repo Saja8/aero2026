@@ -234,19 +234,28 @@
    * Add a lightweight decorative space field to each visible section.
    */
   function initSpaceField() {
-    const iconNames = [
-      'bi-rocket-takeoff',
-      'bi-bezier2',
-      'bi-flask',
-      'bi-globe2',
-      'bi-diagram-3',
-      'bi-stars',
-      'bi-rocket',
-      'bi-broadcast-pin',
-      'bi-beaker',
-      'bi-virus2',
-      'bi-command',
-      'bi-globe-americas'
+    const vectorPictograms = {
+      atom: `<svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="10"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(-60 32 32)"/><circle class="space-vector-fill" cx="32" cy="32" r="5"/></svg>`,
+      satellite: `<svg viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="25" y="22" width="14" height="20" rx="3"/><rect x="2" y="23" width="18" height="18" rx="2"/><path d="M8 23v18M14 23v18M2 29h18M2 35h18M20 32h5M39 32h5"/><rect x="44" y="23" width="18" height="18" rx="2"/><path d="M50 23v18M56 23v18M44 29h18M44 35h18M32 22V12M32 12l8-6M32 12l-8-6"/><circle class="space-vector-fill" cx="32" cy="32" r="4"/></g></svg>`,
+      planet: `<svg viewBox="0 0 64 64" aria-hidden="true"><circle class="space-vector-fill-soft" cx="32" cy="32" r="17"/><ellipse cx="32" cy="32" rx="29" ry="10" transform="rotate(-12 32 32)"/><circle class="space-vector-fill" cx="26" cy="27" r="2.5"/><circle class="space-vector-fill" cx="38" cy="37" r="3.5"/></svg>`,
+      molecule: `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M13 18l19 13 18-15M32 31l7 20M13 18L8 45M50 16l7 27"/><circle class="space-vector-fill-soft" cx="13" cy="18" r="7"/><circle class="space-vector-fill" cx="32" cy="31" r="9"/><circle class="space-vector-fill-soft" cx="50" cy="16" r="6"/><circle class="space-vector-fill" cx="8" cy="45" r="5"/><circle class="space-vector-fill-soft" cx="39" cy="51" r="6"/><circle class="space-vector-fill" cx="57" cy="43" r="4"/></svg>`,
+      dna: `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 5c30 14 0 40 30 54M47 5C17 19 47 45 17 59M22 13h20M17 24h30M17 40h30M22 51h20"/></svg>`
+    };
+    const pictograms = [
+      { icon: 'bi-rocket-takeoff-fill' },
+      { vector: 'atom' },
+      { vector: 'satellite' },
+      { icon: 'bi-flask-fill' },
+      { vector: 'planet' },
+      { vector: 'molecule' },
+      { icon: 'bi-moon-stars-fill' },
+      { vector: 'dna' },
+      { icon: 'bi-beaker-fill' },
+      { icon: 'bi-stars' },
+      { icon: 'bi-person-arms-up', astronaut: true },
+      { icon: 'bi-globe2' },
+      { icon: 'bi-bezier2' },
+      { icon: 'bi-rocket-takeoff' }
     ];
     const main = document.querySelector('main');
     const hero = document.querySelector('#hero');
@@ -259,26 +268,36 @@
     field.style.top = hero ? `${hero.offsetHeight}px` : '0';
     field.dataset.depth = '2';
 
-    const objectCount = window.matchMedia('(max-width: 576px)').matches ? 14 : 28;
-    const horizontalLanes = [3, 96, 8, 91, 14, 86, 20, 80];
+    const isPhone = window.matchMedia('(max-width: 576px)').matches;
+    const objectCount = isPhone ? 24 : 44;
+    const horizontalLanes = [3, 95, 8, 90, 14, 85, 21, 78, 27, 73];
     for (let objectIndex = 0; objectIndex < objectCount; objectIndex += 1) {
       const object = document.createElement('span');
       const colorIndex = (objectIndex % 6) + 1;
-      const iconIndex = (objectIndex * 5 + 2) % iconNames.length;
-      const isAstronaut = false;
-      const motionClass = objectIndex % 5 === 0 ? 'space-floater' : 'space-faller';
-      object.className = `space-object ${motionClass} space-color-${colorIndex}${isAstronaut ? ' space-astronaut' : ''}`;
+      const pictogram = pictograms[(objectIndex * 5 + 2) % pictograms.length];
+      const motionClass = objectIndex % 4 === 0 ? 'space-floater' : 'space-faller';
+      const vectorClass = pictogram.vector ? ' space-vector-object' : '';
+      const orbitClass = objectIndex % 3 === 0 ? ' space-orbit' : '';
+      object.className = `space-object ${motionClass} space-color-${colorIndex}${pictogram.astronaut ? ' space-astronaut' : ''}${vectorClass}${orbitClass}`;
       object.style.left = `${horizontalLanes[objectIndex % horizontalLanes.length]}%`;
-      object.style.top = `${1 + (objectIndex / objectCount) * 94}%`;
-      object.style.setProperty('--space-size', `${0.78 + (objectIndex % 5) * 0.16}rem`);
+      object.style.top = `${0.5 + (objectIndex / objectCount) * 96}%`;
+      object.style.setProperty('--space-size', `${isPhone ? 1.14 + (objectIndex % 5) * 0.19 : 1.35 + (objectIndex % 6) * 0.23}rem`);
       object.style.setProperty('--space-depth', String(3 + (objectIndex % 8)));
-      object.style.setProperty('--space-delay', `${-(objectIndex * 2.3)}s`);
-      object.style.setProperty('--space-duration', `${22 + (objectIndex % 8) * 2}s`);
-      object.style.setProperty('--space-sway', `${objectIndex % 2 ? 28 : -28}px`);
+      object.style.setProperty('--space-delay', `${-(objectIndex * 1.9)}s`);
+      object.style.setProperty('--space-duration', `${17 + (objectIndex % 8) * 2.3}s`);
+      object.style.setProperty('--space-sway', `${objectIndex % 2 ? 38 + (objectIndex % 4) * 9 : -38 - (objectIndex % 4) * 9}px`);
+      object.style.setProperty('--space-travel', `${360 + (objectIndex % 6) * 55}px`);
 
-      const icon = document.createElement('i');
-      icon.className = `bi ${iconNames[iconIndex]}`;
-      object.appendChild(icon);
+      const glyph = document.createElement('span');
+      glyph.className = 'space-glyph';
+      if (pictogram.vector) {
+        glyph.innerHTML = vectorPictograms[pictogram.vector];
+      } else {
+        const icon = document.createElement('i');
+        icon.className = `bi ${pictogram.icon}`;
+        glyph.appendChild(icon);
+      }
+      object.appendChild(glyph);
       field.appendChild(object);
     }
     main.prepend(field);
