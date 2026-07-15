@@ -197,11 +197,36 @@ html[data-theme=dark] .call-to-action .countdown > div {
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+html {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 115, 173, 0.12), transparent 26%),
+    radial-gradient(circle at 88% 20%, rgba(61, 190, 232, 0.12), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(255, 197, 87, 0.1), transparent 30%),
+    var(--background-color);
+}
+
+html[data-theme=dark] {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 143, 200, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 20%, rgba(105, 220, 255, 0.17), transparent 32%),
+    radial-gradient(circle at 50% 95%, rgba(255, 192, 110, 0.14), transparent 34%),
+    var(--background-color);
+}
+
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.44), transparent 18%),
+    var(--background-color);
   font-family: var(--default-font);
   overflow-x: hidden;
+}
+
+html[data-theme=dark] body {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 143, 200, 0.08), transparent 28%),
+    radial-gradient(circle at 85% 44%, rgba(105, 220, 255, 0.08), transparent 30%),
+    var(--background-color);
 }
 
 main {
@@ -595,6 +620,19 @@ h6 {
   }
   .mobile-nav-active .navmenu > ul {
     display: block;
+  }
+  .mobile-nav-active #navmenu > ul {
+    display: block;
+    position: fixed;
+    inset: 82px 16px 22px 16px;
+    height: calc(100dvh - 104px);
+    min-height: 360px;
+    border-radius: 18px;
+    padding: 18px 0;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  }
+  .mobile-nav-active #navmenu > ul a {
+    min-height: 46px;
   }
 }
 /*--------------------------------------------------------------
@@ -5017,6 +5055,401 @@ html[data-theme=dark] .footer .footer-about .logo {
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# ENMICE feedback refinements
+--------------------------------------------------------------*/
+.hero .hero-image-wrapper {
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.hero-visual-carousel {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(6, 24, 44, 0.2);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  background: var(--surface-color);
+}
+
+.hero-visual-carousel .carousel-item {
+  background: linear-gradient(135deg, rgba(14, 116, 214, 0.08), rgba(35, 197, 218, 0.1));
+}
+
+.hero-visual-carousel .hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  max-height: 660px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-visual-carousel .carousel-item:first-child .hero-image {
+  object-fit: contain;
+  padding: 14px;
+  background: #fff;
+}
+
+.hero-slide-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(4, 20, 38, 0.82), rgba(14, 116, 214, 0.72));
+  backdrop-filter: blur(10px);
+}
+
+.hero-slide-caption span,
+.ecosystem-carousel .carousel-caption span {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-slide-caption strong,
+.ecosystem-carousel .carousel-caption strong {
+  font-size: clamp(0.9rem, 1.6vw, 1.08rem);
+  line-height: 1.25;
+}
+
+.hero-visual-carousel .carousel-control-prev,
+.hero-visual-carousel .carousel-control-next,
+.ecosystem-carousel .carousel-control-prev,
+.ecosystem-carousel .carousel-control-next {
+  width: 12%;
+}
+
+.hero-visual-carousel .carousel-indicators {
+  margin-bottom: 0.35rem;
+}
+
+.section-kicker {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--accent-color);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.ecosystem-showcase {
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 92%), color-mix(in srgb, var(--accent-secondary-color), transparent 90%)),
+    var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+  box-shadow: 0 20px 55px color-mix(in srgb, var(--accent-color), transparent 88%);
+}
+
+.ecosystem-showcase h3 {
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.ecosystem-showcase p {
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+  margin-bottom: 0;
+}
+
+.ecosystem-carousel {
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 320px;
+  background: #081a2f;
+  box-shadow: 0 24px 50px rgba(6, 24, 44, 0.22);
+}
+
+.ecosystem-carousel img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 320px;
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.04);
+}
+
+.ecosystem-carousel .carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
+  padding: 32px 28px 26px;
+  background: linear-gradient(0deg, rgba(4, 18, 33, 0.9), transparent);
+}
+
+.schedule .schedule-header {
+  margin-bottom: 26px;
+}
+
+.schedule .schedule-content .session-timeline {
+  max-width: 980px;
+}
+
+.schedule .schedule-content .session-timeline .session-block {
+  margin-bottom: 12px;
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card {
+  padding: 16px 18px;
+  align-items: center;
+  gap: 14px;
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card:hover {
+  transform: translateY(-2px);
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card .session-info .session-meta {
+  margin-bottom: 7px;
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card .session-info .session-title {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card .session-info .session-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 7px;
+  line-height: 1.45;
+}
+
+.schedule .schedule-content .session-timeline .session-block .session-card .session-info .speaker-info {
+  display: none;
+}
+
+.schedule-detail-btn {
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 55%);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: var(--accent-color);
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.schedule-detail-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.schedule-detail-modal .modal-content {
+  background: var(--surface-color);
+  color: var(--default-color);
+  border-radius: 22px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+}
+
+.schedule-detail-modal .modal-track {
+  display: inline-flex;
+  color: var(--accent-color);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.schedule-detail-modal .modal-title {
+  color: var(--heading-color);
+  font-weight: 800;
+}
+
+.schedule-detail-modal .modal-description {
+  line-height: 1.65;
+}
+
+.schedule-detail-modal .modal-meta {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 14px;
+  margin-bottom: 0;
+}
+
+.schedule-detail-modal dt {
+  color: var(--heading-color);
+  font-weight: 800;
+}
+
+.schedule-detail-modal dd {
+  margin-bottom: 0;
+}
+
+.venue-2 .map-container iframe {
+  min-height: 330px;
+}
+
+.venue-2 .map-container {
+  position: relative;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 90%), color-mix(in srgb, var(--accent-secondary-color), transparent 88%)),
+    radial-gradient(circle at 24% 26%, rgba(255, 255, 255, 0.6), transparent 18%),
+    var(--surface-color);
+}
+
+.venue-2 .map-fallback-card {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(6, 24, 44, 0.86), rgba(14, 116, 214, 0.74));
+  box-shadow: 0 14px 28px rgba(6, 24, 44, 0.18);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.venue-2 .map-fallback-card i {
+  font-size: 1.4rem;
+}
+
+.venue-2 .map-fallback-card strong,
+.venue-2 .map-fallback-card span {
+  display: block;
+  line-height: 1.2;
+}
+
+.venue-2 .map-fallback-card span {
+  font-size: 0.82rem;
+  opacity: 0.86;
+}
+
+.venue-2 .venue-carousel .carousel-item,
+.venue-2 .venue-carousel img {
+  width: 100%;
+}
+
+.venue-2 .venue-carousel img {
+  height: 320px;
+  object-fit: cover;
+}
+
+.contact .social-links-pending {
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.contact .social-links-pending p {
+  margin-bottom: 0;
+  opacity: 0.82;
+  font-size: 0.92rem;
+}
+
+.partners .sponsor-logo-kailinks {
+  max-height: 72px;
+}
+
+html[data-theme=dark] .hero-visual-carousel,
+html[data-theme=dark] .ecosystem-showcase,
+html[data-theme=dark] .schedule-detail-modal .modal-content {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme=dark] .partners .partner-logo-wrap,
+html[data-theme=dark] .partners .sponsor-card,
+html[data-theme=dark] .footer .footer-about .logo {
+  background: #ffffff;
+}
+
+html[data-theme=dark] .page-space-field .space-object {
+  opacity: 0.22;
+  filter: saturate(1.35) drop-shadow(0 0 9px currentColor);
+}
+
+html:not([data-theme=dark]) .page-space-field .space-object {
+  opacity: 0.18;
+  filter: saturate(1.15);
+}
+
+html:not([data-theme=dark]) .hero .ornament {
+  opacity: 0.22;
+}
+
+@media (max-width: 991px) {
+  .hero .hero-image-wrapper {
+    margin-top: 34px;
+  }
+
+  .hero-visual-carousel .hero-image {
+    aspect-ratio: 4 / 4.7;
+    max-height: 580px;
+  }
+
+  .ecosystem-carousel img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule .schedule-content .session-timeline .session-block .session-card {
+    display: grid;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .schedule-detail-btn {
+    width: 100%;
+  }
+
+  .schedule-detail-modal .modal-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slide-caption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 11px 12px;
+  }
+
+  .ecosystem-showcase {
+    padding: 20px 14px;
+    border-radius: 22px;
+  }
+
+  .ecosystem-carousel {
+    min-height: 250px;
+  }
+
+  .ecosystem-carousel img {
+    min-height: 250px;
+  }
+
+  .ecosystem-carousel .carousel-caption {
+    padding: 26px 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual-carousel,
+  .ecosystem-carousel,
+  .venue-carousel {
+    scroll-behavior: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

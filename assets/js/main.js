@@ -128,11 +128,106 @@
         `Correo de contacto: ${email}`
       ].join('\n');
 
-      window.location.href = `mailto:contacto@enmice.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoHref = `mailto:contacto@enmice.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.__lastMailtoHref = mailtoHref;
+      window.location.href = mailtoHref;
     });
   }
 
   initContactEmailForm();
+
+  function initScheduleDetails() {
+    const sessionCards = document.querySelectorAll('.schedule .session-card');
+    if (!sessionCards.length || typeof bootstrap === 'undefined') return;
+
+    const modalElement = document.createElement('div');
+    modalElement.className = 'modal fade schedule-detail-modal';
+    modalElement.id = 'scheduleDetailModal';
+    modalElement.tabIndex = -1;
+    modalElement.setAttribute('aria-hidden', 'true');
+    modalElement.innerHTML = `
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <span class="modal-track"></span>
+              <h5 class="modal-title"></h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p class="modal-description"></p>
+            <dl class="modal-meta"></dl>
+          </div>
+        </div>
+      </div>`;
+    document.body.appendChild(modalElement);
+
+    const modal = new bootstrap.Modal(modalElement);
+    const titleElement = modalElement.querySelector('.modal-title');
+    const trackElement = modalElement.querySelector('.modal-track');
+    const descriptionElement = modalElement.querySelector('.modal-description');
+    const metaElement = modalElement.querySelector('.modal-meta');
+
+    sessionCards.forEach((card) => {
+      if (card.querySelector('.schedule-detail-btn')) return;
+
+      const title = card.querySelector('.session-title')?.textContent?.trim() || 'Actividad';
+      const description = card.querySelector('.session-description')?.textContent?.trim() || 'Detalle por confirmar.';
+      const track = card.querySelector('.track')?.textContent?.trim() || 'Programa';
+      const room = card.querySelector('.room')?.textContent?.trim() || 'Sede por confirmar';
+      const speaker = card.querySelector('.speaker-name')?.textContent?.trim() || 'Participantes por confirmar';
+      const role = card.querySelector('.speaker-role')?.textContent?.trim() || '';
+      const block = card.closest('.session-block');
+      const start = block?.querySelector('.session-time .start')?.textContent?.trim() || '';
+      const end = block?.querySelector('.session-time .end')?.textContent?.trim() || '';
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'schedule-detail-btn';
+      button.textContent = 'Ver detalle';
+      button.addEventListener('click', () => {
+        titleElement.textContent = title;
+        trackElement.textContent = track;
+        descriptionElement.textContent = description;
+        metaElement.innerHTML = `
+          <dt>Horario</dt><dd>${start}${end ? `–${end}` : ''}</dd>
+          <dt>Espacio</dt><dd>${room}</dd>
+          <dt>Participación</dt><dd>${speaker}${role ? `<br><small>${role}</small>` : ''}</dd>`;
+        modal.show();
+      });
+      card.appendChild(button);
+    });
+  }
+
+  initScheduleDetails();
+
+  function initAnalyticsHooks() {
+    window.enmiceAnalytics = {
+      status: window.gtag ? 'connected' : 'waiting-for-tracking-id',
+      track(eventName, parameters = {}) {
+        if (window.gtag) {
+          window.gtag('event', eventName, parameters);
+        }
+      }
+    };
+
+    window.enmiceAnalytics.track('page_view', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+
+    document.querySelectorAll('[data-external-link], a[download], .venue-actions a').forEach((link) => {
+      link.addEventListener('click', () => {
+        window.enmiceAnalytics.track('site_action', {
+          label: link.textContent.trim(),
+          href: link.getAttribute('href') || ''
+        });
+      });
+    });
+  }
+
+  initAnalyticsHooks();
 
   /**
    * Add a lightweight decorative space field to each visible section.
@@ -246,12 +341,17 @@
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
+    if (!mobileNavToggleBtn) return;
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
   if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+    mobileNavToggleBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      mobileNavToogle();
+    });
   }
 
   /**
