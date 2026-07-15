@@ -5357,6 +5357,110 @@ html[data-theme=dark] .footer .footer-about .logo {
   font-size: 0.92rem;
 }
 
+.partners .allies-block {
+  background: color-mix(in srgb, var(--accent-color), transparent 96%);
+}
+
+.partners .sponsor-card-open {
+  gap: 0.75rem;
+  color: color-mix(in srgb, var(--heading-color), transparent 14%);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 92%), color-mix(in srgb, var(--accent-secondary-color), transparent 94%)),
+    var(--surface-color);
+  border-style: dashed;
+}
+
+.partners .sponsor-card-open i {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+}
+
+.contact .contact-mini {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 44px);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 90%), color-mix(in srgb, var(--accent-secondary-color), transparent 90%)),
+    var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  box-shadow: 0 22px 55px color-mix(in srgb, var(--accent-color), transparent 86%);
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(22px, 4vw, 46px);
+  align-items: center;
+}
+
+.contact .contact-mini h3 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.contact .contact-mini p {
+  margin-bottom: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+}
+
+.contact .contact-mini-actions {
+  display: grid;
+  gap: 18px;
+}
+
+.contact .contact-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 14px 24px;
+  border-radius: 16px;
+  color: var(--contrast-color);
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-secondary-color), transparent 12%));
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--accent-color), transparent 70%);
+  transition: 0.2s ease;
+}
+
+.contact .contact-email-btn:hover {
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.contact .contact-socials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.contact .contact-socials a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 14px;
+  color: var(--heading-color);
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+.contact .contact-socials a i {
+  color: var(--accent-color);
+  font-size: 1.15rem;
+}
+
+.contact .contact-socials a:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 45%);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent-color), transparent 84%);
+}
+
 .partners .sponsor-logo-kailinks {
   max-height: 72px;
 }
@@ -5441,6 +5545,14 @@ html:not([data-theme=dark]) .hero .ornament {
 
   .ecosystem-carousel .carousel-caption {
     padding: 26px 18px 18px;
+  }
+
+  .contact .contact-mini {
+    grid-template-columns: 1fr;
+  }
+
+  .contact .contact-socials {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
