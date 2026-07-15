@@ -12,6 +12,7 @@
   const themeStorageKey = 'congreso-aeroespacial-theme';
   const rootElement = document.documentElement;
   const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  rootElement.classList.remove('no-js');
   const externalSiteLinks = {
     registration: 'mailto:contacto@enmice.mx?subject=Registro%20Foro%20ENMICE%202026',
     submission: 'mailto:contacto@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
@@ -415,7 +416,10 @@
    * Animation on scroll function and init
    */
   function aosInit() {
-    if (document.documentElement.classList.contains('no-js') || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 992) {
+    const disableAos = window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 992 || typeof AOS === 'undefined';
+    rootElement.classList.toggle('aos-disabled', disableAos);
+
+    if (disableAos) {
       return;
     }
 

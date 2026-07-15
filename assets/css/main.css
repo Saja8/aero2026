@@ -860,10 +860,13 @@ h6 {
 /*--------------------------------------------------------------
 # AOS Reliability Guardrails
 --------------------------------------------------------------*/
-html.no-js [data-aos] {
+html.no-js [data-aos],
+html.aos-disabled [data-aos] {
   opacity: 1 !important;
   transform: none !important;
+  pointer-events: auto !important;
   visibility: visible !important;
+  transition: none !important;
   transition-delay: 0s !important;
 }
 
@@ -871,6 +874,7 @@ html.no-js [data-aos] {
   [data-aos] {
     opacity: 1 !important;
     transform: none !important;
+    pointer-events: auto !important;
     visibility: visible !important;
   }
   [data-aos-delay] {
@@ -5129,19 +5133,24 @@ html[data-theme=dark] .footer .footer-about .logo {
 }
 
 .hero-visual-carousel .carousel-item {
+  aspect-ratio: 4 / 5;
   background: linear-gradient(135deg, rgba(14, 116, 214, 0.08), rgba(35, 197, 218, 0.1));
 }
 
-.hero-visual-carousel .hero-image {
+.hero .hero-image-wrapper .hero-visual-carousel .hero-image {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  height: auto;
-  max-height: 660px;
+  height: 100%;
+  aspect-ratio: auto;
+  max-height: none;
   object-fit: cover;
   object-position: center;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.hero-visual-carousel .carousel-item:first-child .hero-image {
+.hero .hero-image-wrapper .hero-visual-carousel .carousel-item:first-child .hero-image {
   object-fit: contain;
   padding: 14px;
   background: #fff;
@@ -5446,7 +5455,7 @@ html[data-theme=dark] .footer .footer-about .logo {
   align-items: center;
 }
 
-.contact .contact-mini h3 {
+.contact .contact-mini h2 {
   font-size: clamp(1.7rem, 3vw, 2.5rem);
   margin-bottom: 0.75rem;
 }
@@ -5839,7 +5848,7 @@ html:not([data-theme=dark]) .hero .ornament {
     padding: 22px 16px;
   }
 
-  .contact .contact-mini h3 {
+  .contact .contact-mini h2 {
     font-size: 1.85rem;
   }
 
@@ -5853,6 +5862,203 @@ html:not([data-theme=dark]) .hero .ornament {
 
   html[data-theme=dark] .page-space-field .space-object {
     opacity: 0.18;
+  }
+}
+
+/* Final visual QA refinements */
+.about .features-grid {
+  margin-bottom: 0;
+}
+
+.about .feature-mobile-tag {
+  display: none;
+}
+
+.partners .sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.partners .sponsor-grid-item {
+  min-width: 0;
+}
+
+.partners .sponsor-logo-badge {
+  max-height: 74px;
+}
+
+.venue-2 .map-container {
+  isolation: isolate;
+  min-height: 260px;
+  background:
+    linear-gradient(30deg, transparent 0 46%, color-mix(in srgb, var(--accent-color), transparent 88%) 47% 48%, transparent 49% 100%),
+    linear-gradient(150deg, transparent 0 42%, color-mix(in srgb, var(--accent-secondary-color), transparent 88%) 43% 44%, transparent 45% 100%),
+    radial-gradient(circle at 22% 34%, color-mix(in srgb, var(--accent-color), transparent 70%) 0 4px, transparent 5px),
+    radial-gradient(circle at 76% 24%, color-mix(in srgb, var(--accent-secondary-color), transparent 68%) 0 5px, transparent 6px),
+    radial-gradient(circle at 68% 72%, color-mix(in srgb, var(--accent-color), transparent 74%) 0 4px, transparent 5px),
+    color-mix(in srgb, var(--surface-color), var(--accent-color) 6%);
+  background-size: 170px 120px, 190px 140px, auto, auto, auto, auto;
+}
+
+.venue-2 .map-container iframe {
+  position: relative;
+  z-index: 1;
+  min-height: 260px;
+  opacity: 0.24;
+  filter: saturate(0.55) contrast(0.88);
+}
+
+.venue-2 .map-fallback-card {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
+html[data-theme=dark] .partners .sponsor-card-open {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 88%), color-mix(in srgb, var(--accent-secondary-color), transparent 92%)),
+    var(--surface-color);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+html[data-theme=dark] .partners .sponsor-card-open span {
+  color: color-mix(in srgb, var(--default-color), white 8%);
+}
+
+@media (max-width: 991px) {
+  .partners .sponsor-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+  }
+
+  .about .features-grid .row {
+    --bs-gutter-y: 0.8rem;
+  }
+
+  .about .feature-card .feature-media {
+    display: none;
+  }
+
+  .about .feature-card .feature-body {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-areas:
+      "icon tag"
+      "icon title"
+      "icon copy";
+    column-gap: 14px;
+    row-gap: 5px;
+    padding: 18px !important;
+  }
+
+  .about .feature-card .feature-icon {
+    grid-area: icon;
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    border-radius: 15px;
+    font-size: 1.35rem;
+    align-self: start;
+  }
+
+  .about .feature-mobile-tag {
+    grid-area: tag;
+    display: block;
+    color: var(--accent-color);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .about .feature-card h4 {
+    grid-area: title;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+
+  .about .feature-card p {
+    grid-area: copy;
+    margin-top: 2px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .call-to-action h2 {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .call-to-action .lead {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .call-to-action .row.mt-5 {
+    margin-top: 2rem !important;
+  }
+
+  .call-to-action .cta-card {
+    padding: 1.25rem;
+  }
+
+  .call-to-action .stats-grid {
+    gap: 0.65rem;
+  }
+
+  .call-to-action .submission-grid .stat-item {
+    min-height: 108px;
+    padding: 1rem 0.85rem;
+  }
+
+  .call-to-action .submission-grid .stat-number {
+    max-width: 100%;
+    font-size: clamp(1.15rem, 5.5vw, 1.35rem);
+    letter-spacing: -0.035em;
+    overflow-wrap: anywhere;
+  }
+
+  .call-to-action .submission-grid .stat-label {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .call-to-action .trust-indicators {
+    justify-content: flex-start;
+  }
+
+  .venue-2 .map-container,
+  .venue-2 .map-container iframe {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .venue-2 .map-fallback-card {
+    left: 16px;
+    right: 16px;
+    padding: 13px 14px;
+  }
+
+  .partners .sponsor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .partners .sponsor-grid-item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.5rem);
+    justify-self: center;
   }
 }
 
