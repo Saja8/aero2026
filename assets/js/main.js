@@ -235,15 +235,17 @@
   function initSpaceField() {
     const iconNames = [
       'bi-rocket-takeoff',
-      'bi-broadcast-pin',
-      'bi-moon-stars',
+      'bi-bezier2',
+      'bi-flask',
       'bi-globe2',
+      'bi-diagram-3',
       'bi-stars',
       'bi-rocket',
-      'bi-broadcast',
-      'bi-moon-fill',
-      'bi-globe-americas',
-      'bi-person-arms-up'
+      'bi-broadcast-pin',
+      'bi-beaker',
+      'bi-virus2',
+      'bi-command',
+      'bi-globe-americas'
     ];
     const main = document.querySelector('main');
     const hero = document.querySelector('#hero');
@@ -261,8 +263,8 @@
     for (let objectIndex = 0; objectIndex < objectCount; objectIndex += 1) {
       const object = document.createElement('span');
       const colorIndex = (objectIndex % 6) + 1;
-      const iconIndex = (objectIndex * 3 + 2) % iconNames.length;
-      const isAstronaut = iconNames[iconIndex] === 'bi-person-arms-up';
+      const iconIndex = (objectIndex * 5 + 2) % iconNames.length;
+      const isAstronaut = false;
       const motionClass = objectIndex % 5 === 0 ? 'space-floater' : 'space-faller';
       object.className = `space-object ${motionClass} space-color-${colorIndex}${isAstronaut ? ' space-astronaut' : ''}`;
       object.style.left = `${horizontalLanes[objectIndex % horizontalLanes.length]}%`;

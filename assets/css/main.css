@@ -62,6 +62,12 @@
   scroll-behavior: smooth;
 }
 
+@media (max-width: 576px) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
 html {
   color-scheme: light;
 }
@@ -199,9 +205,10 @@ html[data-theme=dark] .call-to-action .countdown > div {
 --------------------------------------------------------------*/
 html {
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 115, 173, 0.12), transparent 26%),
-    radial-gradient(circle at 88% 20%, rgba(61, 190, 232, 0.12), transparent 30%),
-    radial-gradient(circle at 50% 95%, rgba(255, 197, 87, 0.1), transparent 30%),
+    radial-gradient(circle at 12% 10%, rgba(172, 25, 75, 0.08), transparent 26%),
+    radial-gradient(circle at 88% 20%, rgba(39, 170, 225, 0.12), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(137, 196, 0, 0.1), transparent 30%),
+    linear-gradient(180deg, #f5fbfb 0%, #eef7fb 48%, #fff7f0 100%),
     var(--background-color);
 }
 
@@ -216,7 +223,7 @@ html[data-theme=dark] {
 body {
   color: var(--default-color);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.44), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(238, 247, 251, 0.22) 42%, transparent 70%),
     var(--background-color);
   font-family: var(--default-font);
   overflow-x: hidden;
@@ -231,6 +238,18 @@ html[data-theme=dark] body {
 
 main {
   overflow-x: clip;
+}
+
+section,
+[id] {
+  scroll-margin-top: 108px;
+}
+
+@media (max-width: 1199px) {
+  section,
+  [id] {
+    scroll-margin-top: 92px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1292,22 +1311,22 @@ html[data-theme=dark] .section-space-layer .space-color-6 {
   box-shadow: inset 0 0 0 3px color-mix(in srgb, currentColor, transparent 82%);
 }
 .page-space-field .space-color-1 {
-  color: #ff72ad;
+  color: #b0184c;
 }
 .page-space-field .space-color-2 {
-  color: #8b7cff;
+  color: #2f8edb;
 }
 .page-space-field .space-color-3 {
-  color: #45bde9;
+  color: #1fb8c7;
 }
 .page-space-field .space-color-4 {
-  color: #42c997;
+  color: #85bd00;
 }
 .page-space-field .space-color-5 {
-  color: #ff9e47;
+  color: #314b78;
 }
 .page-space-field .space-color-6 {
-  color: #d9ad24;
+  color: #d29b5d;
 }
 html[data-theme=dark] .page-space-field .space-object {
   opacity: 0.22;
@@ -1317,16 +1336,16 @@ html[data-theme=dark] .page-space-field .space-color-1 {
   color: #ff8fc8;
 }
 html[data-theme=dark] .page-space-field .space-color-2 {
-  color: #b49aff;
+  color: #84c4ff;
 }
 html[data-theme=dark] .page-space-field .space-color-3 {
-  color: #69dcff;
+  color: #57e1eb;
 }
 html[data-theme=dark] .page-space-field .space-color-4 {
-  color: #7bf0bd;
+  color: #b9ec4e;
 }
 html[data-theme=dark] .page-space-field .space-color-5 {
-  color: #ffc06e;
+  color: #9fb6ff;
 }
 html[data-theme=dark] .page-space-field .space-color-6 {
   color: #ffe07a;
@@ -5561,6 +5580,243 @@ html:not([data-theme=dark]) .hero .ornament {
   .ecosystem-carousel,
   .venue-carousel {
     scroll-behavior: auto;
+  }
+}
+
+/* Mobile balance pass */
+@media (max-width: 576px) {
+  body.index-page {
+    background:
+      radial-gradient(circle at 12% 12%, rgba(176, 24, 76, 0.08), transparent 28%),
+      radial-gradient(circle at 88% 18%, rgba(31, 184, 199, 0.12), transparent 32%),
+      linear-gradient(180deg, #f7fbfb 0%, #edf7fb 55%, #fff8f2 100%);
+  }
+
+  .header .header-container {
+    min-height: 70px;
+    padding: 8px 12px;
+  }
+
+  .header .logo img {
+    max-height: 54px;
+  }
+
+  .header .btn-getstarted {
+    padding: 9px 16px;
+    font-size: 0.88rem;
+  }
+
+  section,
+  .section {
+    padding: 44px 0;
+    scroll-margin-top: 96px;
+  }
+
+  .hero {
+    padding-top: 92px;
+    padding-bottom: 28px;
+    min-height: auto;
+  }
+
+  .hero .hero-title {
+    font-size: clamp(2.15rem, 10vw, 2.72rem);
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero .hero-subtitle {
+    font-size: 1.12rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero .hero-description {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero .event-details {
+    gap: 0.72rem;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .hero .event-details .detail-item {
+    gap: 0.65rem;
+  }
+
+  .hero .event-details .detail-item span {
+    font-size: 0.94rem;
+  }
+
+  .hero .hero-actions {
+    gap: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  .hero .hero-actions .btn {
+    width: 100%;
+    min-height: 54px;
+    padding: 0.75rem 1rem;
+    font-size: 0.98rem;
+  }
+
+  .hero .countdown-wrapper {
+    display: none;
+  }
+
+  .hero .hero-image-wrapper {
+    margin-top: 22px;
+  }
+
+  .hero-visual-carousel {
+    border-radius: 22px;
+  }
+
+  .hero-visual-carousel .hero-image {
+    aspect-ratio: 4 / 5;
+    max-height: 560px;
+  }
+
+  .section-title {
+    padding-bottom: 22px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+  }
+
+  .about .feature-card,
+  .speakers .speaker-card,
+  .call-to-action .cta-card,
+  .venue-2 .venue-card,
+  .partners .sponsor-block,
+  .contact .contact-mini {
+    border-radius: 20px;
+  }
+
+  .about .feature-card .feature-body {
+    padding: 58px 24px 24px;
+  }
+
+  .about .feature-card h4 {
+    font-size: 1.25rem;
+  }
+
+  .ecosystem-showcase {
+    margin-top: 2rem !important;
+  }
+
+  .schedule .schedule-header {
+    margin-bottom: 16px;
+    position: static;
+    padding: 6px 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .schedule .schedule-header .nav-tabs {
+    margin-bottom: 0;
+  }
+
+  .schedule .schedule-header .nav-tabs .nav-item .nav-link {
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-time {
+    width: auto;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-time::after {
+    display: none;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-time .start {
+    font-size: 0.92rem;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-time .end {
+    font-size: 0.78rem;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-card {
+    margin-left: 0;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-card .session-info .session-title {
+    font-size: 0.98rem;
+  }
+
+  .schedule .schedule-content .session-timeline .session-block .session-card .session-info .session-description {
+    font-size: 0.84rem;
+  }
+
+  .call-to-action .stats-grid {
+    gap: 0.75rem;
+  }
+
+  .call-to-action .submission-grid .stat-item {
+    min-height: 92px;
+    border-radius: 14px;
+  }
+
+  .call-to-action .cta-content h3 {
+    font-size: 1.65rem;
+  }
+
+  .call-to-action .trust-indicators {
+    gap: 0.9rem;
+  }
+
+  .venue-2 .directions-section .travel-options .travel-item {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .partners .sponsor-block {
+    padding: 24px 18px;
+  }
+
+  .partners .sponsor-card {
+    min-height: 104px;
+    padding: 18px 12px;
+  }
+
+  .partners .sponsor-card-open {
+    min-height: 92px;
+  }
+
+  .contact .contact-mini {
+    padding: 22px 16px;
+  }
+
+  .contact .contact-mini h3 {
+    font-size: 1.85rem;
+  }
+
+  .contact .contact-email-btn {
+    min-height: 52px;
+  }
+
+  .page-space-field .space-object {
+    opacity: 0.12;
+  }
+
+  html[data-theme=dark] .page-space-field .space-object {
+    opacity: 0.18;
   }
 }
 
