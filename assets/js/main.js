@@ -15,7 +15,7 @@
   rootElement.classList.remove('no-js');
   const externalSiteLinks = {
     registration: 'https://luma.com/0yqjs3uo',
-    submission: 'mailto:contacto@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
+    submission: 'mailto:foro2026@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
   };
 
   function readStoredTheme() {
@@ -129,7 +129,7 @@
         `Correo de contacto: ${email}`
       ].join('\n');
 
-      const mailtoHref = `mailto:contacto@enmice.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoHref = `mailto:foro2026@enmice.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.__lastMailtoHref = mailtoHref;
       window.location.href = mailtoHref;
     });
