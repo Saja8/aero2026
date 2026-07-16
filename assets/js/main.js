@@ -14,7 +14,7 @@
   const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
   rootElement.classList.remove('no-js');
   const externalSiteLinks = {
-    registration: 'mailto:contacto@enmice.mx?subject=Registro%20Foro%20ENMICE%202026',
+    registration: 'https://luma.com/0yqjs3uo',
     submission: 'mailto:contacto@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
   };
 
