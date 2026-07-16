@@ -7602,4 +7602,242 @@ html[data-theme=dark] .program-preview {
   }
 }
 
+/* Transition promise and organizer motion refinements */
+.forum-promise {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  max-width: 980px;
+  margin: 38px auto 0;
+  padding: 23px 30px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 76%);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 92% 20%, color-mix(in srgb, var(--accent-secondary-color), transparent 82%), transparent 24%),
+    linear-gradient(120deg, color-mix(in srgb, var(--accent-color), transparent 91%), color-mix(in srgb, var(--surface-color), transparent 2%));
+  box-shadow: 0 20px 48px color-mix(in srgb, #06182c, transparent 88%);
+}
+
+.forum-promise-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 18px;
+  color: #05213a;
+  background: linear-gradient(135deg, #69dcff, #a2e329);
+  box-shadow: 0 12px 28px rgba(29, 133, 183, 0.22);
+  font-size: 1.45rem;
+  animation: forum-rocket-float 4.8s ease-in-out infinite;
+}
+
+.forum-promise-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent-color);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.forum-promise p {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+  font-weight: 750;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.forum-promise-orbit {
+  position: absolute;
+  right: -38px;
+  width: 210px;
+  height: 82px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 72%);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  animation: forum-orbit-drift 8s ease-in-out infinite alternate;
+}
+
+.schedule .section-title {
+  padding-bottom: 38px;
+}
+
+.partners .sponsor-block {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 12%, color-mix(in srgb, var(--accent-secondary-color), transparent 88%), transparent 23%),
+    radial-gradient(circle at 94% 82%, color-mix(in srgb, var(--accent-color), transparent 88%), transparent 26%),
+    var(--surface-muted-color);
+  background-size: 125% 125%, 130% 130%, auto;
+  animation: sponsor-field-shift 14s ease-in-out infinite alternate;
+}
+
+.partners .sponsor-grid {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.partners .sponsor-card {
+  position: relative;
+  min-height: 150px;
+  overflow: hidden;
+  padding: 18px;
+  transition: transform 0.34s ease, border-color 0.34s ease, box-shadow 0.34s ease;
+}
+
+.partners .sponsor-card::after {
+  position: absolute;
+  inset: -60% auto -60% -45%;
+  width: 36%;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.68), transparent);
+  transform: rotate(18deg) translateX(-220%);
+  transition: transform 0.72s ease;
+  pointer-events: none;
+}
+
+.partners .sponsor-card:hover {
+  z-index: 2;
+  border-color: color-mix(in srgb, var(--accent-color), transparent 52%);
+  box-shadow: 0 18px 38px color-mix(in srgb, #071b30, transparent 84%);
+  transform: translateY(-7px);
+}
+
+.partners .sponsor-card:hover::after {
+  transform: rotate(18deg) translateX(520%);
+}
+
+.partners .sponsor-logo {
+  display: block;
+  width: auto;
+  max-width: 92%;
+  max-height: 94px;
+  margin: auto;
+  transform-origin: center;
+  animation: sponsor-logo-float 5.8s ease-in-out infinite;
+}
+
+.partners .sponsor-grid-item:nth-child(2) .sponsor-logo {
+  animation-delay: -1.4s;
+}
+
+.partners .sponsor-grid-item:nth-child(3) .sponsor-logo {
+  max-height: 90px;
+  animation-delay: -2.8s;
+}
+
+.partners .sponsor-grid-item:nth-child(4) .sponsor-logo {
+  max-height: 88px;
+  animation-delay: -4.2s;
+}
+
+.partners .sponsor-card-open {
+  min-height: 112px;
+}
+
+@keyframes forum-rocket-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(3px, -5px, 0) rotate(3deg); }
+}
+
+@keyframes forum-orbit-drift {
+  from { translate: 0 -3px; rotate: -2deg; }
+  to { translate: -18px 5px; rotate: 3deg; }
+}
+
+@keyframes sponsor-logo-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.018); }
+}
+
+@keyframes sponsor-field-shift {
+  from { background-position: 0% 0%, 100% 100%, 0 0; }
+  to { background-position: 8% 5%, 92% 94%, 0 0; }
+}
+
+@media (max-width: 767px) {
+  .forum-promise {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 26px;
+    padding: 19px 17px;
+    border-radius: 20px;
+  }
+
+  .forum-promise-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+  }
+
+  .forum-promise p {
+    font-size: clamp(1rem, 4.7vw, 1.18rem);
+    line-height: 1.22;
+  }
+
+  .forum-promise-kicker {
+    font-size: 0.64rem;
+  }
+
+  .partners .sponsor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .partners .sponsor-card {
+    min-height: 126px;
+    padding: 14px 12px;
+  }
+
+  .partners .sponsor-logo,
+  .partners .sponsor-grid-item:nth-child(3) .sponsor-logo,
+  .partners .sponsor-grid-item:nth-child(4) .sponsor-logo {
+    max-width: 94%;
+    max-height: 78px;
+  }
+
+  .partners .sponsor-grid-item:nth-child(1) .sponsor-logo,
+  .partners .sponsor-grid-item:nth-child(4) .sponsor-logo {
+    scale: 1.14;
+  }
+
+  .partners .sponsor-grid-item:nth-child(2) .sponsor-logo {
+    scale: 1.08;
+  }
+
+  .partners .sponsor-card-open {
+    min-height: 104px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forum-promise-icon,
+  .forum-promise-orbit,
+  .partners .sponsor-logo,
+  .partners .sponsor-block {
+    animation: none;
+  }
+
+  .partners .sponsor-card:hover {
+    transform: none;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
