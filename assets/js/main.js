@@ -269,8 +269,10 @@
     field.dataset.depth = '2';
 
     const isPhone = window.matchMedia('(max-width: 576px)').matches;
-    const objectCount = isPhone ? 24 : 44;
-    const horizontalLanes = [3, 95, 8, 90, 14, 85, 21, 78, 27, 73];
+    const objectCount = isPhone ? 30 : 50;
+    const horizontalLanes = isPhone
+      ? [-8, 108, -5, 105, -2, 102, -10, 110, -4, 104]
+      : [14, 85, 21, 78, 27, 73, 8, 90, 3, 95];
     for (let objectIndex = 0; objectIndex < objectCount; objectIndex += 1) {
       const object = document.createElement('span');
       const colorIndex = (objectIndex % 6) + 1;

@@ -1621,7 +1621,7 @@ html[data-theme=dark] .footer .footer-about .logo {
 }
 .hero .countdown-wrapper .countdown {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(96px, 1fr));
+  grid-template-columns: repeat(3, minmax(96px, 1fr));
   gap: 1.5rem;
 }
 .hero .countdown-wrapper .countdown > div {
@@ -1650,7 +1650,7 @@ html[data-theme=dark] .footer .footer-about .logo {
 }
 @media (max-width: 767px) {
   .hero .countdown-wrapper .countdown {
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 360px;
     gap: 1rem;
   }
@@ -5515,8 +5515,54 @@ html[data-theme=dark] .footer .footer-about .logo {
 }
 
 .contact .contact-socials a i {
-  color: var(--accent-color);
-  font-size: 1.15rem;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 9px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.contact .contact-socials .social-instagram i {
+  color: #ffffff;
+  background: radial-gradient(circle at 30% 105%, #ffd600 0 18%, #ff7a00 34%, #ff0169 56%, #d300c5 76%, #7638fa 100%);
+}
+
+.contact .contact-socials .social-facebook i {
+  color: #ffffff;
+  background: #1877f2;
+}
+
+.contact .contact-socials .social-linkedin i {
+  color: #ffffff;
+  background: #0a66c2;
+}
+
+.contact .contact-socials .social-kailinks i {
+  color: #ffffff;
+  background: linear-gradient(135deg, #a5123d 0 66%, #ef7d22 67% 100%);
+}
+
+.contact .contact-socials .social-instagram:hover {
+  border-color: rgba(225, 48, 108, 0.45);
+  box-shadow: 0 10px 22px rgba(225, 48, 108, 0.14);
+}
+
+.contact .contact-socials .social-facebook:hover {
+  border-color: rgba(24, 119, 242, 0.45);
+  box-shadow: 0 10px 22px rgba(24, 119, 242, 0.14);
+}
+
+.contact .contact-socials .social-linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.45);
+  box-shadow: 0 10px 22px rgba(10, 102, 194, 0.14);
+}
+
+.contact .contact-socials .social-kailinks:hover {
+  border-color: rgba(165, 18, 61, 0.45);
+  box-shadow: 0 10px 22px rgba(165, 18, 61, 0.14);
 }
 
 .contact .contact-socials a:hover {
@@ -6056,9 +6102,9 @@ html[data-theme=dark] .partners .sponsor-card-open span {
   }
 
   .partners .sponsor-grid-item:last-child {
-    grid-column: 1 / -1;
-    width: calc(50% - 0.5rem);
-    justify-self: center;
+    grid-column: auto;
+    width: auto;
+    justify-self: stretch;
   }
 }
 
@@ -6857,7 +6903,6 @@ html:not([data-theme=dark]) main.space-main > #schedule,
 html:not([data-theme=dark]) main.space-main > #gallery,
 html:not([data-theme=dark]) main.space-main > #contact {
   background: rgba(220, 237, 244, 0.46);
-  backdrop-filter: blur(2px);
 }
 
 html[data-theme=dark] main.space-main {
@@ -6873,6 +6918,12 @@ html[data-theme=dark] main.space-main {
 }
 
 .space-main > section:not(#hero) {
+  isolation: auto;
+  z-index: auto;
+}
+
+.space-main > section:not(#hero) > .container {
+  position: relative;
   z-index: 3;
 }
 
@@ -6895,7 +6946,7 @@ html[data-theme=dark] main.space-main {
 }
 
 html:not([data-theme=dark]) .page-space-field .space-object {
-  opacity: 0.34;
+  opacity: 0.52;
 }
 
 .page-space-field .space-object::before {
@@ -7035,7 +7086,7 @@ html[data-theme=dark] .hero .ornament {
   }
 
   html:not([data-theme=dark]) .page-space-field .space-object {
-    opacity: 0.28;
+    opacity: 0.46;
   }
 
   html[data-theme=dark] .page-space-field .space-object {
@@ -7048,6 +7099,36 @@ html[data-theme=dark] .hero .ornament {
 
   html[data-theme=dark] .hero .ornament {
     opacity: 0.31;
+  }
+
+  .hero .countdown-wrapper {
+    display: block;
+    max-width: 100%;
+    margin-top: 1rem !important;
+  }
+
+  .hero .countdown-wrapper .countdown-title {
+    margin-bottom: 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  .hero .countdown-wrapper .countdown {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .hero .countdown-wrapper .countdown > div {
+    padding: 0.72rem 0.35rem;
+    border-radius: 11px;
+  }
+
+  .hero .countdown-wrapper .countdown > div h3 {
+    font-size: 1.35rem;
+  }
+
+  .hero .countdown-wrapper .countdown > div h4 {
+    font-size: 0.62rem;
+    letter-spacing: 0.035em;
   }
 }
 
