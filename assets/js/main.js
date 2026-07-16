@@ -138,7 +138,7 @@
   initContactEmailForm();
 
   function initScheduleDetails() {
-    const sessionCards = document.querySelectorAll('.schedule .session-card');
+    const sessionCards = document.querySelectorAll('.schedule .session-card:not(.schedule-no-details)');
     if (!sessionCards.length || typeof bootstrap === 'undefined') return;
 
     const modalElement = document.createElement('div');
