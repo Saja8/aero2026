@@ -7682,8 +7682,6 @@ html[data-theme=dark] .program-preview {
     radial-gradient(circle at 8% 12%, color-mix(in srgb, var(--accent-secondary-color), transparent 88%), transparent 23%),
     radial-gradient(circle at 94% 82%, color-mix(in srgb, var(--accent-color), transparent 88%), transparent 26%),
     var(--surface-muted-color);
-  background-size: 125% 125%, 130% 130%, auto;
-  animation: sponsor-field-shift 14s ease-in-out infinite alternate;
 }
 
 .partners .sponsor-grid {
@@ -7766,11 +7764,6 @@ html[data-theme=dark] .program-preview {
   50% { transform: translateY(-3px) scale(1.018); }
 }
 
-@keyframes sponsor-field-shift {
-  from { background-position: 0% 0%, 100% 100%, 0 0; }
-  to { background-position: 8% 5%, 92% 94%, 0 0; }
-}
-
 @media (max-width: 767px) {
   .forum-promise {
     grid-template-columns: 48px minmax(0, 1fr);
@@ -7785,6 +7778,11 @@ html[data-theme=dark] .program-preview {
     height: 48px;
     border-radius: 15px;
     font-size: 1.2rem;
+    animation: none;
+  }
+
+  .forum-promise-orbit {
+    animation: none;
   }
 
   .forum-promise p {
@@ -7811,6 +7809,7 @@ html[data-theme=dark] .program-preview {
   .partners .sponsor-grid-item:nth-child(4) .sponsor-logo {
     max-width: 94%;
     max-height: 78px;
+    animation: none;
   }
 
   .partners .sponsor-grid-item:nth-child(1) .sponsor-logo,
@@ -7830,8 +7829,7 @@ html[data-theme=dark] .program-preview {
 @media (prefers-reduced-motion: reduce) {
   .forum-promise-icon,
   .forum-promise-orbit,
-  .partners .sponsor-logo,
-  .partners .sponsor-block {
+  .partners .sponsor-logo {
     animation: none;
   }
 
