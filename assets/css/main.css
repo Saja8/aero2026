@@ -8145,6 +8145,24 @@ html[data-theme=dark] .program-preview {
   text-transform: none;
 }
 
+.hero-route-document {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 6px;
+  margin-top: 9px;
+  color: var(--accent-color);
+  font-size: 0.69rem;
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.hero-route-document:hover {
+  color: color-mix(in srgb, var(--accent-color), black 18%);
+  text-decoration: underline;
+}
+
 .participation-paths-heading {
   margin: 0 0 10px;
   color: rgba(255, 255, 255, 0.88);
@@ -8201,6 +8219,102 @@ html[data-theme=dark] .program-preview {
   font-weight: 800;
 }
 
+.preliminary-document {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 14px;
+  padding: 14px 15px;
+  border: 1px solid rgba(255, 196, 97, 0.34);
+  border-radius: 17px;
+  background: rgba(255, 183, 77, 0.09);
+}
+
+.preliminary-document > i {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+  color: #071a31;
+  background: #ffd08a;
+  font-size: 1.2rem;
+}
+
+.preliminary-document span,
+.preliminary-document strong,
+.preliminary-document small {
+  display: block;
+}
+
+.preliminary-document span {
+  margin-bottom: 2px;
+  color: #ffd08a;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.preliminary-document strong {
+  color: #ffffff;
+  font-size: 0.84rem;
+  line-height: 1.25;
+}
+
+.preliminary-document small {
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.67rem;
+  line-height: 1.35;
+}
+
+.preliminary-document > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 208, 138, 0.42);
+  border-radius: 10px;
+  color: #fff3dd;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.preliminary-document > a:hover {
+  color: #071a31;
+  background: #ffd08a;
+}
+
+.venue-brief .venue-brand {
+  width: 100%;
+  min-height: 94px;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 17px 20px;
+}
+
+.venue-brief .venue-brand img {
+  width: min(100%, 300px);
+  max-width: 300px;
+  max-height: 72px;
+}
+
+.partners .sponsor-link {
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.partners .sponsor-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), white 20%);
+  outline-offset: 4px;
+}
+
 @media (max-width: 767px) {
   .hero-route-selector {
     max-width: 430px;
@@ -8226,6 +8340,31 @@ html[data-theme=dark] .program-preview {
 
   .participation-submit-panel .btn {
     width: 100%;
+  }
+
+  .preliminary-document {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .preliminary-document > i {
+    width: 40px;
+    height: 40px;
+  }
+
+  .preliminary-document > a {
+    grid-column: 1 / -1;
+    justify-content: center;
+    min-height: 42px;
+  }
+
+  .venue-brief .venue-brand {
+    min-height: 82px;
+    padding: 14px 16px;
+  }
+
+  .venue-brief .venue-brand img {
+    max-width: 250px;
+    max-height: 60px;
   }
 }
 
