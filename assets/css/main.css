@@ -7390,6 +7390,44 @@ html[data-theme=dark] .hero .ornament {
   text-transform: uppercase;
 }
 
+.program-date-card em {
+  display: inline-flex;
+  width: fit-content;
+  margin: 16px auto 0;
+  padding: 6px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.72;
+}
+
+.participation-pending {
+  flex-wrap: wrap;
+  cursor: default;
+  opacity: 0.78;
+}
+
+.participation-pending small {
+  padding: 3px 6px;
+  border-radius: 999px;
+  color: #06192e;
+  background: rgba(110, 220, 255, 0.9);
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.participation-pending:hover {
+  color: var(--accent-color);
+  background: transparent;
+  transform: none;
+}
+
 .venue-spotlight {
   grid-template-columns: minmax(0, 0.94fr) minmax(390px, 1.06fr);
   max-width: 1120px;
@@ -7579,7 +7617,7 @@ html[data-theme=dark] .program-preview {
   }
 
   .program-date-card {
-    min-height: 150px;
+    min-height: 174px;
     padding: 20px 10px;
     border-radius: 17px;
   }
