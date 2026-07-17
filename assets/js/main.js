@@ -110,6 +110,63 @@
 
   initExternalLinks();
 
+  function initHeroCarouselSync() {
+    const carouselElement = document.querySelector('#heroVisualCarousel');
+    if (!carouselElement) return;
+
+    const slides = Array.from(carouselElement.querySelectorAll('.carousel-item'));
+
+    function timeToMilliseconds(value) {
+      const time = String(value || '').trim();
+      if (time.endsWith('ms')) return Number.parseFloat(time) || 0;
+      if (time.endsWith('s')) return (Number.parseFloat(time) || 0) * 1000;
+      return 0;
+    }
+
+    function getTransitionDuration(slide) {
+      const styles = window.getComputedStyle(slide);
+      const durations = styles.transitionDuration.split(',').map(timeToMilliseconds);
+      const delays = styles.transitionDelay.split(',').map(timeToMilliseconds);
+
+      return durations.reduce((longest, duration, index) => {
+        const delay = delays[index] ?? delays[0] ?? 0;
+        return Math.max(longest, duration + delay);
+      }, 0);
+    }
+
+    function settleSlide(slide, afterTransition = false) {
+      if (!slide) return;
+
+      const interval = Number(slide.getAttribute('data-bs-interval'))
+        || Number(carouselElement.getAttribute('data-bs-interval'))
+        || 4300;
+
+      const visibleDuration = afterTransition
+        ? Math.max(800, interval - getTransitionDuration(slide))
+        : interval;
+
+      slide.style.setProperty('--slide-duration', `${visibleDuration}ms`);
+      slide.classList.remove('is-settled');
+      void slide.offsetWidth;
+      slide.classList.add('is-settled');
+    }
+
+    carouselElement.addEventListener('slide.bs.carousel', (event) => {
+      event.relatedTarget?.classList.remove('is-settled');
+    });
+
+    carouselElement.addEventListener('slid.bs.carousel', (event) => {
+      slides.forEach((slide) => {
+        if (slide !== event.relatedTarget) slide.classList.remove('is-settled');
+      });
+      settleSlide(event.relatedTarget, true);
+    });
+
+    requestAnimationFrame(() => settleSlide(carouselElement.querySelector('.carousel-item.active')));
+  }
+
+  initHeroCarouselSync();
+
   function initContactEmailForm() {
     const contactForm = document.querySelector('#contact-email-form');
     if (!contactForm) return;
