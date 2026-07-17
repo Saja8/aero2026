@@ -15,7 +15,8 @@
   rootElement.classList.remove('no-js');
   const externalSiteLinks = {
     registration: 'https://luma.com/0yqjs3uo',
-    submission: 'mailto:foro2026@enmice.mx?subject=Proyecto%20para%20Foro%20ENMICE%202026'
+    participation: 'https://docs.google.com/forms/d/e/1FAIpQLScfYtvHzhVneozxO6cc8U9g63cr2Sbk74kw1zzeC66zecNADw/viewform',
+    submission: 'https://docs.google.com/forms/d/e/1FAIpQLScfYtvHzhVneozxO6cc8U9g63cr2Sbk74kw1zzeC66zecNADw/viewform'
   };
 
   function readStoredTheme() {
