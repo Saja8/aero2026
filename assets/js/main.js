@@ -54,6 +54,10 @@
 
   function applyTheme(theme, persistTheme = false) {
     rootElement.setAttribute('data-theme', theme);
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) {
+      themeColor.setAttribute('content', theme === 'dark' ? '#07111d' : '#fbfdff');
+    }
     if (persistTheme) {
       writeStoredTheme(theme);
     }

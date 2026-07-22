@@ -4,9 +4,31 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdff">
   <title>Foro ENMICE 2026 | Innovación y desarrollo aeroespacial</title>
   <meta name="description" content="Foro ENMICE 2026: innovación y desarrollo aeroespacial, 24 y 25 de septiembre en la Secretaría de Economía, Ciudad de México.">
   <meta name="keywords" content="congreso aeroespacial, aerospace, ENMICE, KaiLinks, México, septiembre 2026">
+
+  <script>
+    (() => {
+      const storageKey = 'congreso-aeroespacial-theme';
+      let storedTheme = null;
+
+      try {
+        storedTheme = localStorage.getItem(storageKey);
+      } catch (error) {
+        // The browser preference remains available when storage is blocked.
+      }
+
+      const theme = storedTheme === 'dark' || storedTheme === 'light'
+        ? storedTheme
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      document.documentElement.setAttribute('data-theme', theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#07111d' : '#fbfdff');
+    })();
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
