@@ -8310,9 +8310,15 @@ html[data-theme=dark] .program-preview {
 }
 
 html:not([data-theme=dark]) .hero-route-card .btn-primary {
+  --bs-btn-color: var(--accent-color);
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: var(--accent-color);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--accent-color);
+  --bs-btn-hover-border-color: var(--accent-color);
   color: var(--accent-color);
   border-color: var(--accent-color);
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: none;
 }
 
@@ -8320,14 +8326,20 @@ html:not([data-theme=dark]) .hero-route-card .btn-primary:hover,
 html:not([data-theme=dark]) .hero-route-card .btn-primary:focus-visible {
   color: #ffffff;
   border-color: var(--accent-color);
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-color), transparent 72%);
 }
 
 html[data-theme=dark] .hero-route-card .btn-primary {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: var(--accent-color);
+  --bs-btn-border-color: var(--accent-color);
+  --bs-btn-hover-color: var(--accent-color);
+  --bs-btn-hover-bg: #ffffff;
+  --bs-btn-hover-border-color: #ffffff;
   color: #ffffff;
   border-color: var(--accent-color);
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-color), transparent 76%);
 }
 
@@ -8335,7 +8347,7 @@ html[data-theme=dark] .hero-route-card .btn-primary:hover,
 html[data-theme=dark] .hero-route-card .btn-primary:focus-visible {
   color: var(--accent-color);
   border-color: #ffffff;
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
 
