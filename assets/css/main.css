@@ -7805,13 +7805,13 @@ html[data-theme=dark] .program-preview {
 }
 
 .partners .sponsor-grid-item:nth-child(2) .sponsor-logo {
-  scale: 1.08;
+  max-height: 96px;
+  scale: 1.24;
   animation-delay: -1.4s;
 }
 
 .partners .sponsor-grid-item:nth-child(3) .sponsor-logo {
-  max-height: 96px;
-  scale: 1.24;
+  scale: 1.08;
   animation-delay: -2.8s;
 }
 
@@ -7894,11 +7894,11 @@ html[data-theme=dark] .program-preview {
   }
 
   .partners .sponsor-grid-item:nth-child(2) .sponsor-logo {
-    scale: 1.12;
+    scale: 1.24;
   }
 
   .partners .sponsor-grid-item:nth-child(3) .sponsor-logo {
-    scale: 1.24;
+    scale: 1.12;
   }
 
   .partners .sponsor-card-open {
