@@ -8575,4 +8575,142 @@ html[data-theme=dark] .hero-route-card .btn-primary:focus-visible {
   }
 }
 
+/*--------------------------------------------------------------
+# Unified interactive feedback
+--------------------------------------------------------------*/
+:is(
+  .header .btn-getstarted,
+  .hero-route-card .btn,
+  .hero-route-document,
+  .program-update-link,
+  .preliminary-document > a,
+  .participation-submit-panel .btn,
+  .venue-map-route,
+  .venue-brief .venue-actions .btn,
+  .contact .contact-email-btn,
+  .contact .contact-socials a,
+  .theme-toggle,
+  .scroll-top
+) {
+  transform-origin: center;
+  transition:
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.22s ease,
+    color 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    filter 0.22s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(
+    .header .btn-getstarted,
+    .hero-route-card .btn,
+    .hero-route-document,
+    .program-update-link,
+    .preliminary-document > a,
+    .participation-submit-panel .btn,
+    .venue-map-route,
+    .venue-brief .venue-actions .btn,
+    .contact .contact-email-btn,
+    .contact .contact-socials a,
+    .theme-toggle,
+    .scroll-top
+  ):hover {
+    transform: translateY(-3px);
+    filter: saturate(1.08);
+  }
+}
+
+:is(
+  .header .btn-getstarted,
+  .hero-route-card .btn,
+  .hero-route-document,
+  .program-update-link,
+  .preliminary-document > a,
+  .participation-submit-panel .btn,
+  .venue-map-route,
+  .venue-brief .venue-actions .btn,
+  .contact .contact-email-btn,
+  .contact .contact-socials a,
+  .theme-toggle,
+  .scroll-top,
+  .partners .sponsor-link,
+  .carousel-control-prev,
+  .carousel-control-next,
+  .carousel-indicators button
+):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), white 24%);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-color), transparent 78%);
+}
+
+:is(
+  .header .btn-getstarted,
+  .hero-route-card .btn,
+  .hero-route-document,
+  .program-update-link,
+  .preliminary-document > a,
+  .participation-submit-panel .btn,
+  .venue-map-route,
+  .venue-brief .venue-actions .btn,
+  .contact .contact-email-btn,
+  .contact .contact-socials a,
+  .theme-toggle,
+  .scroll-top
+):active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .header .btn-getstarted,
+    .hero-route-card .btn,
+    .hero-route-document,
+    .program-update-link,
+    .preliminary-document > a,
+    .participation-submit-panel .btn,
+    .venue-map-route,
+    .venue-brief .venue-actions .btn,
+    .contact .contact-email-btn,
+    .contact .contact-socials a,
+    .theme-toggle,
+    .scroll-top
+  ) {
+    transition-duration: 0.01ms;
+  }
+
+  :is(
+    .header .btn-getstarted,
+    .hero-route-card .btn,
+    .hero-route-document,
+    .program-update-link,
+    .preliminary-document > a,
+    .participation-submit-panel .btn,
+    .venue-map-route,
+    .venue-brief .venue-actions .btn,
+    .contact .contact-email-btn,
+    .contact .contact-socials a,
+    .theme-toggle,
+    .scroll-top
+  ):hover,
+  :is(
+    .header .btn-getstarted,
+    .hero-route-card .btn,
+    .hero-route-document,
+    .program-update-link,
+    .preliminary-document > a,
+    .participation-submit-panel .btn,
+    .venue-map-route,
+    .venue-brief .venue-actions .btn,
+    .contact .contact-email-btn,
+    .contact .contact-socials a,
+    .theme-toggle,
+    .scroll-top
+  ):active {
+    transform: none;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
