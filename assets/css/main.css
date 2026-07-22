@@ -8145,6 +8145,17 @@ html[data-theme=dark] .program-preview {
   text-transform: none;
 }
 
+.hero-route-actions {
+  display: grid;
+  width: 100%;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.hero-route-actions .btn {
+  margin-top: 0;
+}
+
 .hero-route-document {
   display: inline-flex;
   width: 100%;
@@ -8152,7 +8163,7 @@ html[data-theme=dark] .program-preview {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: 10px;
+  margin-top: 0;
   padding: 9px 11px;
   border: 1px solid color-mix(in srgb, #d99b33, transparent 45%);
   border-radius: 11px;
