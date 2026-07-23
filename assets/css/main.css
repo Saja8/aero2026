@@ -5150,6 +5150,12 @@ html[data-theme=dark] .footer .footer-about .logo {
   background: #fff;
 }
 
+.hero .hero-image-wrapper .hero-visual-carousel .carousel-item.hero-organizers-slide .hero-image {
+  object-fit: cover;
+  padding: 0;
+  background: #f5f9fa;
+}
+
 .hero-slide-caption {
   position: absolute;
   left: 18px;
