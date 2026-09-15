@@ -14,9 +14,7 @@
   const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
   rootElement.classList.remove('no-js');
   const externalSiteLinks = {
-    registration: 'https://luma.com/0yqjs3uo',
-    participation: 'https://docs.google.com/forms/d/e/1FAIpQLScfYtvHzhVneozxO6cc8U9g63cr2Sbk74kw1zzeC66zecNADw/viewform',
-    submission: 'https://docs.google.com/forms/d/e/1FAIpQLScfYtvHzhVneozxO6cc8U9g63cr2Sbk74kw1zzeC66zecNADw/viewform'
+    registration: 'https://luma.com/0yqjs3uo'
   };
 
   function readStoredTheme() {
