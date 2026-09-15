@@ -5145,9 +5145,9 @@ html[data-theme=dark] .footer .footer-about .logo {
 }
 
 .hero .hero-image-wrapper .hero-visual-carousel .carousel-item:first-child .hero-image {
-  object-fit: contain;
-  padding: 14px;
-  background: #fff;
+  object-fit: cover;
+  padding: 0;
+  background: #06182c;
 }
 
 .hero .hero-image-wrapper .hero-visual-carousel .carousel-item.hero-organizers-slide .hero-image {
@@ -9131,5 +9131,90 @@ html[data-theme=dark] .hero-route-document:hover {
   .hero-attend-cta .btn:hover,
   .program-download:hover {
     transform: none;
+  }
+}
+
+/* Phone hero: introduce the event visually before the supporting details. */
+@media (max-width: 767px) {
+  .hero .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start !important;
+  }
+
+  .hero .hero-copy-flow {
+    display: contents;
+  }
+
+  .hero .hero-title {
+    grid-row: 1;
+  }
+
+  .hero .hero-subtitle {
+    grid-row: 2;
+    margin-bottom: 12px;
+  }
+
+  .hero .row > .col-lg-6:last-child {
+    grid-row: 3;
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .hero .hero-description {
+    grid-row: 4;
+  }
+
+  .hero .event-details {
+    grid-row: 5;
+  }
+
+  .hero .hero-attend-cta {
+    grid-row: 6;
+  }
+
+  .hero .countdown-wrapper {
+    grid-row: 7;
+  }
+
+  .hero .hero-image-wrapper {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-visual-carousel {
+    border-radius: 20px;
+    box-shadow: 0 18px 42px rgba(6, 24, 44, 0.2);
+  }
+
+  .hero-visual-carousel .carousel-item {
+    aspect-ratio: 16 / 9;
+  }
+
+  .hero .hero-image-wrapper .hero-visual-carousel .hero-image {
+    object-position: center 36%;
+  }
+
+  .hero .hero-image-wrapper .hero-visual-carousel .carousel-item.hero-organizers-slide .hero-image {
+    padding: 0;
+    object-fit: cover;
+    object-position: center 13%;
+  }
+
+  .hero-slide-caption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 9px 11px;
+    border-radius: 13px;
+  }
+
+  .hero-slide-caption span {
+    font-size: 0.61rem;
+  }
+
+  .hero-slide-caption strong {
+    font-size: 0.78rem;
   }
 }
