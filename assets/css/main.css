@@ -9134,6 +9134,507 @@ html[data-theme=dark] .hero-route-document:hover {
   }
 }
 
+/* Confirmed agenda and public exhibitor directory */
+.program-details {
+  border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+}
+
+.program-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  color: var(--accent-color);
+  font-weight: 850;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.program-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.program-details summary::after {
+  content: "\F282";
+  font-family: "bootstrap-icons";
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.program-details summary span {
+  flex: 1;
+}
+
+.program-details summary small {
+  color: color-mix(in srgb, var(--default-color), transparent 34%);
+  font-size: 0.7rem;
+}
+
+.program-details[open] summary {
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+}
+
+.program-details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.program-sessions {
+  display: grid;
+  margin: 0;
+  padding: 0 20px 18px;
+  list-style: none;
+  counter-reset: session;
+}
+
+.program-sessions li {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 89%);
+  counter-increment: session;
+}
+
+.program-sessions li:last-child {
+  border-bottom: 0;
+}
+
+.program-sessions time {
+  color: var(--accent-color);
+  font-size: 0.71rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.program-sessions strong,
+.program-sessions span {
+  display: block;
+}
+
+.program-sessions strong {
+  color: var(--heading-color);
+  font-size: 0.77rem;
+  line-height: 1.42;
+}
+
+.program-sessions span {
+  margin-top: 4px;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  font-size: 0.68rem;
+  line-height: 1.42;
+}
+
+.program-sessions .program-opening,
+.program-sessions .program-free {
+  margin: 5px -8px;
+  padding: 11px 8px;
+  border: 0;
+  border-radius: 11px;
+}
+
+.program-sessions .program-opening {
+  background: color-mix(in srgb, var(--accent-secondary-color), transparent 88%);
+}
+
+.program-sessions .program-free {
+  background: color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.exhibitors {
+  overflow: hidden;
+}
+
+.expo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.expo-map-card,
+.expo-directory-card {
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 76%);
+  border-radius: 28px;
+  background: var(--surface-color);
+  box-shadow: 0 22px 58px color-mix(in srgb, #06182c, transparent 87%);
+}
+
+.expo-map-card {
+  padding: clamp(18px, 2.5vw, 28px);
+}
+
+.expo-directory-card {
+  padding: clamp(18px, 2.5vw, 26px);
+}
+
+.expo-card-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.expo-card-heading h3 {
+  margin: 5px 0 0;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  letter-spacing: -0.025em;
+}
+
+.expo-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent-color);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.expo-status {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 91%);
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.expo-map-carousel {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 78%);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.expo-map-carousel .carousel-item img {
+  height: clamp(430px, 49vw, 620px);
+  padding: 14px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.expo-map-carousel .carousel-indicators {
+  z-index: 4;
+  margin-bottom: 12px;
+}
+
+.expo-map-carousel .carousel-indicators button {
+  width: 26px;
+  height: 5px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #173654;
+}
+
+.expo-map-carousel .carousel-control-prev,
+.expo-map-carousel .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  width: 42px;
+  height: 42px;
+  margin: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  border-radius: 50%;
+  background: rgba(6, 24, 44, 0.76);
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.expo-map-label {
+  position: absolute;
+  z-index: 3;
+  right: 18px;
+  bottom: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 9px;
+  min-width: 190px;
+  padding: 10px 13px;
+  border-radius: 14px;
+  color: #ffffff;
+  background: rgba(6, 24, 44, 0.88);
+  box-shadow: 0 10px 24px rgba(6, 24, 44, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.expo-map-label span {
+  grid-row: 1 / 3;
+  align-self: center;
+  color: #64d6f3;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.expo-map-label strong,
+.expo-map-label small {
+  display: block;
+}
+
+.expo-map-label strong {
+  color: #ffffff;
+  font-size: 0.83rem;
+}
+
+.expo-map-label small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.66rem;
+}
+
+.expo-download {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 48%);
+  border-radius: 16px;
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expo-download > i:first-child {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 11px;
+  color: #ffffff;
+  background: #b31f4d;
+}
+
+.expo-download strong,
+.expo-download small {
+  display: block;
+}
+
+.expo-download strong {
+  font-size: 0.82rem;
+}
+
+.expo-download small {
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--default-color), transparent 34%);
+  font-size: 0.67rem;
+}
+
+.expo-download > i:last-child {
+  color: var(--accent-color);
+}
+
+.expo-download:hover {
+  color: #ffffff;
+  background: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--accent-color), transparent 72%);
+}
+
+.expo-download:hover small,
+.expo-download:hover > i:last-child {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.expo-directory-intro {
+  margin: -4px 0 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.expo-area {
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 2%);
+}
+
+.expo-area summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 15px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.expo-area summary::-webkit-details-marker {
+  display: none;
+}
+
+.expo-area summary span,
+.expo-area summary strong,
+.expo-area summary small {
+  display: block;
+}
+
+.expo-area summary strong {
+  color: var(--heading-color);
+  font-size: 0.9rem;
+}
+
+.expo-area summary small {
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--default-color), transparent 34%);
+  font-size: 0.66rem;
+}
+
+.expo-area summary i {
+  color: var(--accent-color);
+  transition: transform 0.2s ease;
+}
+
+.expo-area[open] summary {
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+}
+
+.expo-area[open] summary i {
+  transform: rotate(180deg);
+}
+
+.exhibitor-list {
+  display: grid;
+  padding: 4px 15px 10px;
+}
+
+.exhibitor-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 89%);
+}
+
+.exhibitor-item:last-child {
+  border-bottom: 0;
+}
+
+.exhibitor-item > span {
+  color: var(--accent-color);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.exhibitor-item strong,
+.exhibitor-item small {
+  display: block;
+}
+
+.exhibitor-item strong {
+  color: var(--heading-color);
+  font-size: 0.74rem;
+  line-height: 1.3;
+}
+
+.exhibitor-item small {
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 0.65rem;
+  line-height: 1.35;
+}
+
+.expo-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 2px 0;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.expo-note i {
+  color: var(--accent-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .program-details summary:hover,
+  .expo-area summary:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 91%);
+  }
+}
+
+@media (max-width: 991px) {
+  .expo-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .program-details summary {
+    padding: 14px;
+  }
+
+  .program-sessions {
+    padding: 0 14px 14px;
+  }
+
+  .program-sessions li {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 9px;
+    padding: 11px 0;
+  }
+
+  .program-sessions time {
+    font-size: 0.65rem;
+  }
+
+  .program-sessions strong {
+    font-size: 0.72rem;
+  }
+
+  .expo-map-card,
+  .expo-directory-card {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .expo-card-heading {
+    gap: 10px;
+  }
+
+  .expo-card-heading h3 {
+    font-size: 1.35rem;
+  }
+
+  .expo-map-carousel .carousel-item img {
+    height: 430px;
+    padding: 8px;
+  }
+
+  .expo-map-carousel .carousel-control-prev,
+  .expo-map-carousel .carousel-control-next {
+    width: 38px;
+    height: 38px;
+    margin: 0 8px;
+  }
+
+  .expo-map-label {
+    right: 10px;
+    bottom: 18px;
+    left: 10px;
+    min-width: 0;
+  }
+
+  .expo-download {
+    padding: 12px;
+  }
+
+  .exhibitor-item {
+    grid-template-columns: 62px minmax(0, 1fr);
+  }
+}
+
 /* Phone hero: introduce the event visually before the supporting details. */
 @media (max-width: 767px) {
   .hero .row {
