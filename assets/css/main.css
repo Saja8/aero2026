@@ -8913,6 +8913,17 @@ html[data-theme=dark] .hero-route-document:hover {
   box-shadow: 0 14px 34px var(--panel-shadow-color);
 }
 
+@media (min-width: 992px) {
+  .program-day-grid:has(.program-details[open]) > .program-day-card {
+    grid-column: 1 / -1;
+  }
+
+  .program-day-grid:has(.program-details[open]) .program-sessions {
+    max-width: 980px;
+    margin-inline: auto;
+  }
+}
+
 .program-day-card header {
   display: grid;
   grid-template-columns: 108px minmax(0, 1fr);
@@ -9228,7 +9239,8 @@ html[data-theme=dark] .hero-route-document:hover {
 }
 
 .program-sessions .program-opening,
-.program-sessions .program-free {
+.program-sessions .program-free,
+.program-sessions .program-closing {
   margin: 5px -8px;
   padding: 11px 8px;
   border: 0;
@@ -9239,8 +9251,9 @@ html[data-theme=dark] .hero-route-document:hover {
   background: color-mix(in srgb, var(--accent-secondary-color), transparent 88%);
 }
 
-.program-sessions .program-free {
-  background: color-mix(in srgb, var(--default-color), transparent 94%);
+.program-sessions .program-free,
+.program-sessions .program-closing {
+  background: color-mix(in srgb, var(--accent-secondary-color), transparent 88%);
 }
 
 .exhibitors {
