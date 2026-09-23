@@ -9283,11 +9283,11 @@ html[data-theme=dark] .hero-route-document:hover {
   justify-content: center;
   gap: 12px;
   margin: 12px 2px 1px;
-  padding: 15px clamp(16px, 3vw, 28px);
+  padding: 22px clamp(18px, 3vw, 32px);
   border-radius: 18px;
   color: var(--heading-color);
   background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
   font-weight: 800;
   line-height: 1.35;
   text-align: center;
@@ -9636,9 +9636,9 @@ html[data-theme=dark] .hero-route-document:hover {
   .expo-networking-feature figcaption {
     align-items: flex-start;
     margin-top: 8px;
-    padding: 13px 12px;
+    padding: 18px 14px;
     border-radius: 14px;
-    font-size: 1.18rem;
+    font-size: 1.5rem;
     text-align: left;
   }
 
