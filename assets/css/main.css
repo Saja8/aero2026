@@ -9260,6 +9260,45 @@ html[data-theme=dark] .hero-route-document:hover {
   overflow: hidden;
 }
 
+.expo-networking-feature {
+  width: min(100%, 860px);
+  margin: 0 auto clamp(34px, 5vw, 56px);
+  padding: clamp(10px, 1.5vw, 15px);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 74%);
+  border-radius: 30px;
+  background: var(--surface-color);
+  box-shadow: 0 28px 70px color-mix(in srgb, #06182c, transparent 82%);
+}
+
+.expo-networking-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 21px;
+}
+
+.expo-networking-feature figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 2px 1px;
+  padding: 15px clamp(16px, 3vw, 28px);
+  border-radius: 18px;
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  font-size: clamp(1rem, 2.1vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.expo-networking-feature figcaption i {
+  flex: 0 0 auto;
+  color: var(--accent-color);
+  font-size: 1.35em;
+}
+
 .expo-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
@@ -9584,6 +9623,25 @@ html[data-theme=dark] .hero-route-document:hover {
 }
 
 @media (max-width: 576px) {
+  .expo-networking-feature {
+    margin-bottom: 30px;
+    padding: 7px;
+    border-radius: 20px;
+  }
+
+  .expo-networking-feature img {
+    border-radius: 14px;
+  }
+
+  .expo-networking-feature figcaption {
+    align-items: flex-start;
+    margin-top: 8px;
+    padding: 13px 12px;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    text-align: left;
+  }
+
   .program-details summary {
     padding: 14px;
   }
